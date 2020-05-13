@@ -1,4 +1,5 @@
 #include "users.h"
+
 using namespace std;
 
 users::users(){}
@@ -36,8 +37,18 @@ bool users::validate(std::string s_username, std::string s_password){
             validation = true;
         }
     }
-    if (type == "client"){
-        validation = true;
+    if (type == "Client"){
+        vector<string> users_auth = get_userinfo();
+        vector<string>::iterator it = users_auth.begin();
+
+        while(it != users_auth.end()){
+            vector <string> user_content = split_text(*it);
+            if (user_content[0] == s_username && user_content[1] == s_password){
+                validation = true;
+            }
+            it++;
+        }
+
     }
     return validation;
 }
@@ -76,3 +87,41 @@ vector<string> opensudo(){
    splitted = split_text(data);
    return splitted;
   }
+
+
+void append_users_info(string input){
+    string crypted = "";
+    crypted = p_encriptado(input);
+    ofstream outfile;
+
+    outfile.open("../SnacksCinema/Data/users.txt", std::ios_base::app);
+    outfile << crypted + "\n";
+    outfile.close();
+}
+
+vector <string> get_userinfo(){
+string data = "";
+string ndata = "";
+vector<string> seglist;
+
+   ifstream infile;
+   infile.open("../SnacksCinema/Data/users.txt");
+
+   if (!infile.is_open())
+   {
+     cout << "No hay usuarios ingresados" << endl;
+     cout << "Ingrese usuarios desde el perfil administrador para habilitar esta seccion." << endl;
+     exit(1);
+   }
+
+   while (std::getline(infile, data))
+   {
+       if(data.size() > 0)
+           ndata = p_desencriptado(data);
+           seglist.push_back(ndata);
+   }
+   infile.close();
+
+   return seglist;
+  }
+

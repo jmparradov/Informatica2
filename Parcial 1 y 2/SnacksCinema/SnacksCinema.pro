@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        crypt.cpp \
         main.cpp \
         products.cpp \
         users.cpp

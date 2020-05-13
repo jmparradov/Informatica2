@@ -27,5 +27,14 @@ public:
 };
 
 std::vector<std::string> opensudo();
+bool login(std::string type, users user);
+void admin_session();
+void client_session();
+void append_users_info(std::string input);
+
+std::string p_encriptado(std::string text);
+std::string p_desencriptado(std::string binary);
+std::vector<std::string> get_userinfo();
+std::vector<std::string> split_text(std::string value);
 
 #endif // USERS_H
