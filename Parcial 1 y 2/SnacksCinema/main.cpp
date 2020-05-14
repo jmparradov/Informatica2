@@ -96,15 +96,14 @@ void admin_session(){
         if (opt == 1){
             // input products to inventory
             snacks.udpdate_inventory();
-
         }
 
         if (opt == 2){
-            // create and modify combos
+            // create and modify combos !!!!
         }
 
         if (opt == 3){
-            // generate daily report
+            // generate daily report  !!!!
         }
 
         if (opt == 4){
@@ -120,7 +119,6 @@ void admin_session(){
             append_users_info(user + "," + password);
             system("cls");
             cout<<"Usuario satisfactoriamente ingresado"<<endl<<endl;
-
         }
 
         if (opt == 0){
@@ -129,7 +127,6 @@ void admin_session(){
             break;
         }
     }
-
 }
 
 
