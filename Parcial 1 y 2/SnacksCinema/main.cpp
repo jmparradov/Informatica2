@@ -3,6 +3,7 @@
 #include <users.h>
 #include <products.h>
 #include <limits>
+#include <ctime>
 
 using namespace std;
 
@@ -12,6 +13,9 @@ products snacks;
 
 //funcion que muestra el valor de la devuelta en terminos de monedas y billetes existentes.
 void change(int valor);
+
+//funcion que registra toda nueva compra en trascciones
+void nueva_compra(products snacks, int n_combo);
 
 int main(){
 
@@ -140,7 +144,34 @@ void admin_session(){
         }
 
         if (optt == 3){
-            // generate daily report  !!!!
+            // generate daily report
+            std::stringstream ss;
+            vector<vector<string>> transacciones = snacks.get_transactions();
+            vector<vector<string>>::iterator iter  = transacciones.begin();
+
+            time_t rawtime;
+            struct tm * timeinfo;
+            char buffer[80];
+
+            time (&rawtime);
+            timeinfo = localtime(&rawtime);
+
+            strftime(buffer,sizeof(buffer),"%d-%m-%Y",timeinfo);
+            string str(buffer);
+
+
+            cout<<"Este es el resumen de las transacciones de hoy:"<<endl;
+
+            if(transacciones.size() == 0){
+                cout<<"No hay transacciones registradas."<<endl;
+            }
+            while(iter != transacciones.end()){
+                if(str == (*iter)[0]){
+                       cout<<"Transaccion realizada en "<<str<<":"<<endl;
+                       cout<<"Combo "<<(*iter)[1]<<" comprado."<<endl<<endl;
+                }
+                iter ++;
+            }
         }
 
         if (optt == 4){
@@ -186,13 +217,13 @@ void client_session(){
             //ii++;
             cout<<"Combo: ";
             while (ii != it->second.end()){
-                ci += 1;
-                if ((ci+2)==int(ii->size())){
+                if ((ci+1)==int(it->second.size())){
                     cout<<"Precio: $"<<*ii<<endl;
                 }
                 else{
                     cout<<*ii<<" ";
                 }
+                ci += 1;
                 ii++;
             }
             it++;
@@ -258,7 +289,8 @@ void client_session(){
 
         cout<<"Por favor la sala y lugar (ejemplo 1-A1)"<<endl;
         cin>>lugar;
-
+        snacks.nueva_compra(opt);
+        //system("cls");
         cout<<"Gracias por confirmar, su pedido le sera entregado de acuerdo a la informacion recibida"<<endl;
         cout<<"Disfrute su estadia"<<endl<<endl;
 
@@ -284,3 +316,4 @@ void change(int valor){
     }
     cout<<endl;
 }
+
