@@ -2,6 +2,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+template<typename T>
+T validation(T n, T option){
+    while(n < option){
+        cout<<"Ingrese un numero entre las opciones"<<endl;
+        cin >>option;
+    }
+    return option;
+}
+
 products::products(){
     map<int,vector<string>> info = get_inventory_info();
     set_inventario(info);
@@ -215,10 +224,7 @@ void products::udpdate_inventory(){
                cin >> opti;
             }
             cout<<endl;
-            while(opti > 2){
-                cout<<"Ingrese un numero entre las opciones"<<endl;
-                cin >>opti;
-            }
+            opti = validation(2,opti);
 
             if (opti == 1){
                 string nombre;
@@ -291,10 +297,8 @@ void products::update_combos(){
            cin >> cc;
         }
 
-        while(cc > 2){
-            cout<<"Ingrese un numero entre las opciones"<<endl;
-            cin >>cc;
-        }
+        cc = validation(2,cc);
+
         cout<<endl;
         if (cc==0){
             break;
@@ -334,10 +338,7 @@ void products::update_combos(){
                cin >> opt3;
             }
 
-            while(opt3 > 2){
-                cout<<"Ingrese un numero entre las opciones"<<endl;
-                cin >>opt3;
-            }
+            opt3 = validation(2,opt3);
 
             if (opt3 == 1){
                 int opt4 = 0;
@@ -353,10 +354,7 @@ void products::update_combos(){
                    cin >> opt4;
                 }
 
-                while(opt4 > 2){
-                    cout<<"Ingrese un numero entre las opciones"<<endl;
-                    cin >>opt4;
-                }
+                opt4 = validation(2,opt4);
 
                 if (opt4 ==1){
                     // funcion agregar nuevo combo
@@ -378,10 +376,7 @@ void products::update_combos(){
                        cin >> opt3;
                     }
 
-                    while(confirm > 2){
-                        cout<<"Ingrese un numero entre las opciones"<<endl;
-                        cin >>confirm;
-                    }
+                    confirm = validation(1,confirm);
 
                     if (confirm == 1){
                         combo.erase(id);
@@ -423,10 +418,7 @@ void products::update_combos(){
                cin >> opti;
             }
 
-            while(opti > 2){
-                cout<<"Ingrese un numero entre las opciones"<<endl;
-                cin >>opti;
-            }
+            opti = validation(1,opti);
 
             if (opti == 1){
                 agregar_combo(id,combo,inventory, true);

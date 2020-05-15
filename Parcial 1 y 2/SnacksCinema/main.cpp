@@ -17,6 +17,15 @@ void change(int valor);
 //funcion que registra toda nueva compra en trascciones
 void nueva_compra(products snacks, int n_combo);
 
+template<typename T>
+T validation(T n, T option){
+    while(n < option){
+        cout<<"Ingrese un numero entre las opciones"<<endl;
+        cin >>option;
+    }
+    return option;
+}
+
 int main(){
 
     while (true){
@@ -37,10 +46,7 @@ int main(){
                cin >> opt;
         }
 
-        while(opt > 2){
-            cout<<"Ingrese un numero entre las opciones"<<endl;
-            cin >>opt;
-        }
+        opt = validation(2,opt);
 
 
         if(opt == 1){
@@ -128,11 +134,7 @@ void admin_session(){
                cin >> optt;
         }
 
-        while(optt > 4){
-            cout<<"Ingrese un numero entre las opciones"<<endl;
-            cin >>optt;
-        }
-
+        optt = validation(4,optt);
 
         if (optt == 1){
             // input products to inventory
