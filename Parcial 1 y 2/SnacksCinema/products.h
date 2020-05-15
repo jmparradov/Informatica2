@@ -24,16 +24,19 @@ public:
 private:
     std::map<int,std::vector<std::string>> inventario;
     std::map<int,std::vector<std::string>> combos;
-    void agregar_combo(int id);
+
+    void agregar_combo(int id, std::map<int,std::vector<std::string>> combo, std::map<int,std::vector<std::string>> inventory);
 
 };
 
 int string_to_int(std::string s);
+std::string in_to_string(int n);
 std::map<int,std::vector<std::string>> get_inventory_info();
 std::map<int,std::vector<std::string>> get_combos_info();
 std::vector<std::string> split_text(std::string value);
 std::string p_encriptado(std::string text);
 std::string p_desencriptado(std::string binary);
 void save_inventory(std::map<int,std::vector<std::string>> inventory);
+void save_combos(std::map<int,std::vector<std::string>> combos);
 
 #endif // PRODUCTS_H

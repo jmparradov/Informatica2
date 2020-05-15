@@ -11,9 +11,10 @@ products::products(){
 }
 
 products::~products(){
-    map<int,vector<string>> tosave;
-    tosave = get_inventario();
-    save_inventory(tosave);
+    map<int,vector<string>> inventory_tosave = get_inventario();
+    map<int,vector<string>> combos_tosave = get_combos();
+    save_inventory(inventory_tosave);
+    save_combos(combos_tosave);
 }
 
 void products::set_inventario(map<int,vector<string>> s_inventario){
@@ -36,7 +37,7 @@ map<int,vector<string>> products::get_combos(){
 void products::udpdate_inventory(){
     int id;
     map<int,vector<string>> inventory;
-    inventory = inventario;
+    inventory = get_inventario();
     map<int,vector<string>>::iterator it = inventory.begin();
 
     while (true){
@@ -44,7 +45,8 @@ void products::udpdate_inventory(){
 
         if (inventory.size() != 0){
             while(it != inventory.end()){
-                cout<<"ID: "<<it->first;
+                cout<<endl;
+                cout<<"ID: "<<it->first<<endl;
                 cout<<"Producto: "<<it->second[0]<<endl;
                 cout<<"Cantidad: "<<it->second[1]<<endl;
                 cout<<"Costo: "<<it->second[2]<<endl;
@@ -52,7 +54,8 @@ void products::udpdate_inventory(){
             }
         }
 
-        cout<<"Ingrese el ID del producto a ingresar:"<<endl;
+        cout<<"Ingrese el ID del producto a ingresar o modificar:"<<endl;
+        cout<<"Ingrese 0 para regresar al menu anterior:"<<endl;
         cin>>id;
 
         while (!cin){
@@ -60,6 +63,10 @@ void products::udpdate_inventory(){
            cin.ignore(10000, '\n');
            cout << "Ingrese solo numeros." << endl;
            cin >> id;
+        }
+
+        if (id == 0){
+            break;
         }
 
         bool ingresado = false;
@@ -72,6 +79,7 @@ void products::udpdate_inventory(){
             it++;
         }
 
+        cout<<endl;
         if (ingresado){
             int cantidad;
             int value;
@@ -85,10 +93,12 @@ void products::udpdate_inventory(){
                cin >> cantidad;
             }
 
+            cout<<endl;
             cout<<inventory[id][1]<<endl;
-            value = string_to_int(inventory[id][1]) + cantidad;
-            cout<<value<<endl;
-            string ss(1, char(value));
+            value = string_to_int(inventory[id][1]);
+            value += cantidad;
+            cout<<"La nueva cantidad del producto es: "<<value<<endl;
+            string ss =  in_to_string(value);
             inventory[id][1] = ss;
             cout<<inventory[id][1]<<endl;
         }
@@ -106,7 +116,7 @@ void products::udpdate_inventory(){
                cout << "Ingrese solo numeros." << endl;
                cin >> opti;
             }
-
+            cout<<endl;
             while(opti > 2){
                 cout<<"Ingrese un numero entre las opciones"<<endl;
                 cin >>opti;
@@ -126,8 +136,8 @@ void products::udpdate_inventory(){
                 cout<<"Ingrese el costo por unidad del item: (solo numeros)"<<endl;
                 cin>>costo;
                 inventory[id].push_back(costo);
-                system("cls");
-                cout<<"Item satisfactoriamente agregado al inventario"<<endl;
+                cout<<endl;
+                cout<<"Item satisfactoriamente agregado al inventario"<<endl<<endl;
 
             }
             break;
@@ -139,33 +149,37 @@ void products::udpdate_inventory(){
 
 void products::update_combos(){
     int id;
-    map<int,vector<string>> combo;
-    combo = combos;
-    map<int,vector<string>> inventory = inventario;
-    map<int,vector<string>>::iterator it = combo.begin();
+    map<int,vector<string>> inventory = get_inventario();
 
     while (true){
         int cc;
-        cout<<"Combos actuales"<<endl;
+        map<int,vector<string>> combo = get_combos();
+        map<int,vector<string>>::iterator it = combo.begin();
 
         if (combo.size() != 0){
+            it = combo.begin();
             while(it != combo.end()){
-                cout<<"ID: "<<it->first;
+                cout<<it->first<<". ";
                 vector<string>::iterator ii = it->second.begin();
                 int ci = 0;
-                ii++;
-                cout<<"Productos: ";
+                //ii++;
+                cout<<"Combo: ";
                 while (ii != it->second.end()){
                     ci += 1;
-                    if (ci-2==ii->size()){
-                        cout<<endl<<"Costo: "<<*ii<<endl;
+                    if ((ci+2)==int(ii->size())){
+                        cout<<"Precio: $"<<*ii<<endl;
                     }
                     else{
                         cout<<*ii<<" ";
                     }
+                    ii++;
                 }
                 it++;
             }
+            cout<<endl;
+        }
+        else{
+            cout<<"No combos ingresados al momento."<<endl;
         }
 
         cout<<"1. Actualizar combos."<<endl;
@@ -183,7 +197,7 @@ void products::update_combos(){
             cout<<"Ingrese un numero entre las opciones"<<endl;
             cin >>cc;
         }
-
+        cout<<endl;
         if (cc==0){
             break;
         }
@@ -207,10 +221,9 @@ void products::update_combos(){
             }
             it++;
         }
-
+        cout<<endl;
         if (ingresado){
             int opt3;
-            int value;
             cout<<"Que dese modificar?"<<endl;
             cout<<"1. Cambiar productos."<<endl;
             cout<<"2. Cambiar precio."<<endl;
@@ -232,7 +245,7 @@ void products::update_combos(){
                 int opt4 = 0;
                 cout<<"Que dese modificar?"<<endl;
                 cout<<"1. Agregar un producto."<<endl;
-                cout<<"2. Eliminar un producto."<<endl;
+                cout<<"2. Eliminar combo."<<endl;
                 cin>>opt4;
 
                 while (!cin){
@@ -249,7 +262,7 @@ void products::update_combos(){
 
                 if (opt4 ==1){
                     // funcion agregar nuevo combo
-                    agregar_combo(id);
+                    agregar_combo(id, combo, inventory);
                 }
 
                 if (opt4 ==2){
@@ -273,8 +286,9 @@ void products::update_combos(){
                     }
 
                     if (confirm == 1){
-                        combos.erase(id);
-                        cout<<"Combo eliminado satisfactoriamente"<<endl;
+                        combo.erase(id);
+                        set_combos(combo);
+                        cout<<"Combo eliminado satisfactoriamente"<<endl<<endl;
                     }
                 }
             }
@@ -290,9 +304,10 @@ void products::update_combos(){
                    cout << "Ingrese solo numeros." << endl;
                    cin >> opt3;
                 }
-                string ss(1, char(newprice));
+                string ss =  in_to_string(newprice);
                 combo[id][combo[id].size()-1] = ss;
-                cout<<"Nuevo valor ingresado satisfactoriamente."<<endl;
+                set_combos(combo);
+                cout<<"Nuevo valor ingresado satisfactoriamente."<<endl<<endl;
             }
         }
 
@@ -316,18 +331,16 @@ void products::update_combos(){
             }
 
             if (opti == 1){
-                agregar_combo(id);
+                agregar_combo(id,combo,inventory);
             }
         }
     }
-  set_inventario(inventory);
+
 }
 
-void products::agregar_combo(int id){
+void products::agregar_combo(int id, map<int,vector<string>> combo, map<int,vector<string>> inventory){
     int cantidad;
     int products;
-    map<int,vector<string>> combo = combos;
-    map<int,vector<string>> inventory = inventario;
 
     while(true){
         cout<<"Seleccione el producto a adicionar en el combo, seleccionado el id:"<<endl;
@@ -342,6 +355,7 @@ void products::agregar_combo(int id){
             }
         }
 
+        cout<<"0. Continuar con el siguiente paso"<<endl;
         cin>>products;
 
         while (!cin){
@@ -381,28 +395,40 @@ void products::agregar_combo(int id){
            cin >> cantidad;
         }
         // funcion para ingresar el producto al combo
-        string ss(1, char(cantidad));
+        string ss =  in_to_string(cantidad);
+        if (combo[id].size() != 0){
+            combo[id].pop_back();
+        }
+
         combo[id].push_back(ss);
         combo[id].push_back(inventory[products][0]);
 
-        cout<<"El producto fue agregado satisfactoriamente"<<endl;
+        cout<<"El producto fue agregado satisfactoriamente"<<endl<<endl;
     }
     int precio = 0;
     cout<<"Ingrese el precio total del combo"<<endl;
     cin>>precio;
-    string ss(1, char(precio));
+    string ss =  in_to_string(precio);
     combo[id].push_back(ss);
 
-    cout<<"Informacion del combo anadida satisfactoriamente"<<endl;
+    cout<<"Informacion del combo anadida satisfactoriamente"<<endl<<endl;
+    set_combos(combo);
 }
 
 int string_to_int(string s){
-    int value = 0;
+    stringstream geek(s);
+    int x = 0;
+    geek >> x;
+    return x;
+}
 
-    for (int n = 0; n < s.length();n++){
-        value = s[n]*pow(10,n);
-    }
-    return value;
+string in_to_string(int n){
+      stringstream ss;
+      ss<<n;
+      string s;
+      ss>>s;
+
+      return s;
 }
 
 vector <string> split_text(string value);
@@ -459,7 +485,7 @@ void save_inventory(map<int,vector<string>> inventory){
 
     map<int,vector<string>>::iterator it = inventory.begin();
     while(it != inventory.end()){
-        string ss(1, char(it->first));
+        string ss =  in_to_string(it->first);
         input = ss + "," + it->second[0] + "," + it->second[1] + "," + it->second[2];
         crypted = p_encriptado(input);
         outfile << crypted + "\n";
@@ -499,11 +525,12 @@ map<int,vector<string>> get_combos_info(){
     while(it != seglist.end()){
         newvector = split_text(*it);
         int id = string_to_int(newvector[0]);
-        vector<string>::iterator ii = it;
+        vector<string>::iterator ii = newvector.begin();
 
         ii++;
         while (ii != newvector.end()){
             newinfo[id].push_back(*ii);
+
             ii++;
         }
        it++;
@@ -516,7 +543,7 @@ void save_combos(map<int,vector<string>> combos){
     string crypted = "";
     string input;
     ofstream outfile;
-    outfile.open("../SnacksCinema/data/inventory.txt");
+    outfile.open("../SnacksCinema/data/combos.txt");
 
     if (!outfile.is_open())
     {
@@ -525,7 +552,7 @@ void save_combos(map<int,vector<string>> combos){
 
     map<int,vector<string>>::iterator it = combos.begin();
     while(it != combos.end()){
-        string ss(1, char(it->first));
+        string ss =  in_to_string(it->first);
         vector<string>::iterator ii = it->second.begin();
         input = ss;
         while (ii != it->second.end()){

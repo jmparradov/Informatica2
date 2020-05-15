@@ -6,13 +6,17 @@
 
 using namespace std;
 
-users admin_user;
-users client_user;
+users admin_user("Admin");
+users client_user("Client");
 products snacks;
+
+//funcion que muestra el valor de la devuelta en terminos de monedas y billetes existentes.
+void change(int valor);
 
 int main(){
 
-    while (true){        
+    while (true){
+        // Main Menu
         int opt = 10;
         cout << "Bienvenido a Snacks Cinema!" << endl<<endl;
         cout << "Ingrese una opcion para continuar" << endl;
@@ -132,7 +136,7 @@ void admin_session(){
         }
 
         if (optt == 2){
-            // create and modify combos !!!!
+            snacks.update_combos();
         }
 
         if (optt == 3){
@@ -170,12 +174,30 @@ void client_session(){
     int opt = 10;
 
     while (true){
-        // import combos
+        map<int,vector<string>> combo = snacks.get_combos();
+        map<int,vector<string>>::iterator it = combo.begin();
 
         cout << "Seleccione el combo que desea comprar" << endl;
-        cout << "1. Combo 1." << endl;
-        cout << "2. Combo 2." << endl;
-        cout << "3. Combo 3." << endl<<endl;
+
+        while(it != combo.end()){
+            cout<<it->first<<". ";
+            vector<string>::iterator ii = it->second.begin();
+            int ci = 0;
+            //ii++;
+            cout<<"Combo: ";
+            while (ii != it->second.end()){
+                ci += 1;
+                if ((ci+2)==int(ii->size())){
+                    cout<<"Precio: $"<<*ii<<endl;
+                }
+                else{
+                    cout<<*ii<<" ";
+                }
+                ii++;
+            }
+            it++;
+        }
+        cout<<endl;
 
         cout << "0. Cerrar session"<<endl<<endl;
         cin>>opt;
@@ -187,29 +209,78 @@ void client_session(){
            cin >> opt;
         }
 
-        while(opt > 2){
-            cout<<"Ingrese un numero entre las opciones"<<endl;
-            cin >>opt;
-        }
-
-        if (opt == 1){
-            // combo 1..
-        }
-
-        if (opt == 2){
-            // combo 2..
-        }
-
-        if (opt == 3){
-            // combo 3..
-        }
-
         if (opt == 0){
             system("cls");
-            cout<<"Cerrando sesion de administrador"<<endl;
+            cout<<"Cerrando sesion de usuario"<<endl;
             break;
         }
-    }
 
+        bool ingresado = false;
+        while(not(ingresado)){
+            it = combo.begin();
+            while(it != combo.end()){
+                if (it->first == opt){
+                    ingresado = true;
+                }
+                it++;
+            }
+            if (not(ingresado)){
+                cout<<"Ingrese un numero entre las opciones"<<endl;
+                cin >>opt;
+            }
+        }
+
+        int plata = 0;
+        int precio = string_to_int(combo[opt][combo[opt].size()-1]);
+        cout<<"Por favor cancelar $"<<combo[opt][combo[opt].size()-1]<<", ingresar el valor de su billete."<<endl;
+        cin>>plata;
+
+        while (!cin){
+           cin.clear();
+           cin.ignore(10000, '\n');
+           cout << "Ingrese solo numeros." << endl;
+           cin >> plata;
+        }
+
+        while(plata<precio){
+            cout<<"El billete ingresado no alcanza para pagar el valor del combo"<<endl;
+            cout<<"Ingrese un valor de nuevo"<<endl;
+            cin>>plata;
+        }
+
+        // pago y devuelta de la practica 2
+        change(plata-precio);
+
+        string hora;
+        string lugar;
+        cout<<"Por favor ingrese la hora de su pelicula"<<endl;
+        cin>>hora;
+
+        cout<<"Por favor la sala y lugar (ejemplo 1-A1)"<<endl;
+        cin>>lugar;
+
+        cout<<"Gracias por confirmar, su pedido le sera entregado de acuerdo a la informacion recibida"<<endl;
+        cout<<"Disfrute su estadia"<<endl<<endl;
+
+        break;
+    }
 }
 
+void change(int valor){
+    int result[10] = {0,0,0,0,0,0,0,0,0,0};
+    int number[10] = {50000,20000,10000,5000,2000,1000,500,200,100,50};
+
+    cout<<"Reciba su devuelta por favor"<<endl;
+
+    for (int i=0;i<10;i++){
+        if (valor/number[i]>0){
+            *(result +i) = valor/ (*(number +i));
+            valor -= number[i]*result[i];
+
+        }
+    }
+    for (int i = 0; i<10; i++){
+        cout<<*(number+i)<<" : "<<*(result+i)<<endl;
+    }
+    cout<<endl;
+}
