@@ -2,30 +2,20 @@
 
 using namespace std;
 
-users::users(){}
+users::users(string s_type){
+    type = s_type;
+}
 
-string users::get_type(){
+void users::set_type(string s_type){
+    type = s_type;
+}
+
+std::string users::get_type(){
     return type;
 }
 
-string users::get_username(){
-    return username;
-}
-
-string users::get_password(){
-    return password;
-}
-
-void users::set_type(string stype){
-    type = stype;
-}
-
-void users::set_username(string susername){
-    username = susername;
-}
-
-void users::set_password(string spassword){
-    password = spassword;
+vector<string> users::get_allusers(){
+    return all_users;
 }
 
 bool users::validate(std::string s_username, std::string s_password){
@@ -51,6 +41,16 @@ bool users::validate(std::string s_username, std::string s_password){
 
     }
     return validation;
+}
+
+void users::append_users_info(string input){
+    string crypted = "";
+    crypted = p_encriptado(input);
+    ofstream outfile;
+
+    outfile.open("../SnacksCinema/Data/users.txt", std::ios_base::app);
+    outfile << crypted + "\n";
+    outfile.close();
 }
 
 // functions outside the class
@@ -88,16 +88,6 @@ vector<string> opensudo(){
    return splitted;
   }
 
-
-void append_users_info(string input){
-    string crypted = "";
-    crypted = p_encriptado(input);
-    ofstream outfile;
-
-    outfile.open("../SnacksCinema/Data/users.txt", std::ios_base::app);
-    outfile << crypted + "\n";
-    outfile.close();
-}
 
 vector <string> get_userinfo(){
 string data = "";

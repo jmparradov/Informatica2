@@ -2,38 +2,53 @@
 #include <products.h>
 #include <users.h>
 #include <products.h>
+#include <limits>
 
 using namespace std;
 
-users user;
+users admin_user;
+users client_user;
 products snacks;
 
 int main(){
 
-
-    int opt = 10;
-    while (true){
+    while (true){        
+        int opt = 10;
         cout << "Bienvenido a Snacks Cinema!" << endl<<endl;
         cout << "Ingrese una opcion para continuar" << endl;
         cout << "1. Acceder al sistema como usuario administrador." << endl;
         cout << "2. Acceder como usuario." << endl<<endl;
         cout << "0. Salir." << endl<<endl;
+
         cin>>opt;
 
+        while (!cin){
+               cin.clear();
+               cin.ignore(10000, '\n');
+               cout << "Ingrese solo numeros." << endl;
+               cin >> opt;
+        }
+
+        while(opt > 2){
+            cout<<"Ingrese un numero entre las opciones"<<endl;
+            cin >>opt;
+        }
+
+
         if(opt == 1){
-            if (login("Admin", user)){
+            if (login(admin_user)){
                 admin_session();
             }
         }
 
         if(opt == 2){
-            if (login("Client", user)){
+            if (login(client_user)){
                 client_session();
             }
         }
 
         if(opt == 0){
-            system("cls");
+            //system("cls");
             cout<<"Hasta pronto!"<<endl;
             break;
         }
@@ -45,10 +60,11 @@ int main(){
 
 // Login module
 
-bool login(string type, users user){
+bool login(users user){
     string username;
     string password;
     bool successfull = false;
+    string type = user.get_type();
 
     int cnt = 0;
     user.set_type(type);
@@ -76,53 +92,71 @@ bool login(string type, users user){
             cout<<"Intentos agotados"<<endl;
             break;
         }
+        if(cnt ==0){
+            break;
+        }
     }
 return  successfull;
 }
 
 // administador session
 void admin_session(){
-    int opt = 10;
 
     while (true){
+        int optt = 10;
         cout << "Ingrese una opcion para continuar" << endl;
         cout << "1. Ingresar productos al inventario." << endl;
         cout << "2. Crear o modificar combos." << endl;
         cout << "3. Generar reporte con ventas del dia." << endl;
         cout << "4. Agregar usuarios." << endl<<endl;
         cout << "0. Cerrar session de administrador"<<endl<<endl;
-        cin>>opt;
 
-        if (opt == 1){
+        cin>>optt;
+
+        while (!cin){
+               cin.clear();
+               cin.ignore(10000, '\n');
+               cout << "Ingrese solo numeros." << endl;
+               cin >> optt;
+        }
+
+        while(optt > 4){
+            cout<<"Ingrese un numero entre las opciones"<<endl;
+            cin >>optt;
+        }
+
+
+        if (optt == 1){
             // input products to inventory
             snacks.udpdate_inventory();
         }
 
-        if (opt == 2){
+        if (optt == 2){
             // create and modify combos !!!!
         }
 
-        if (opt == 3){
+        if (optt == 3){
             // generate daily report  !!!!
         }
 
-        if (opt == 4){
-            string user;
+        if (optt == 4){
+            string username;
             string password;
 
             // add users
             cout<<"Ingresar nombre de usuario (sin espacios ni carateres especiales)" << endl;
-            cin>>user;
+            cin>>username;
             cout<<"Ingresar contrasena (sin espacios ni carateres especiales)" << endl;
             cin>>password;
 
-            append_users_info(user + "," + password);
+            admin_user.append_users_info(username + "," + password);
             system("cls");
             cout<<"Usuario satisfactoriamente ingresado"<<endl<<endl;
         }
 
-        if (opt == 0){
-            system("cls");
+
+        if (optt == 0){
+            //system("cls");
             cout<<"Cerrando sesion de administrador"<<endl;
             break;
         }
@@ -145,6 +179,18 @@ void client_session(){
 
         cout << "0. Cerrar session"<<endl<<endl;
         cin>>opt;
+
+        while (!cin){
+           cin.clear();
+           cin.ignore(10000, '\n');
+           cout << "Ingrese solo numeros." << endl;
+           cin >> opt;
+        }
+
+        while(opt > 2){
+            cout<<"Ingrese un numero entre las opciones"<<endl;
+            cin >>opt;
+        }
 
         if (opt == 1){
             // combo 1..

@@ -10,27 +10,22 @@ class users
 {
 
 private:
+    std::vector<std::string> all_users;
     std::string type;
-    std::string username;
-    std::string password;
+
 public:
-    users();
+    users(std::string s_type);
+    std::vector<std::string> get_allusers();
+    void append_users_info(std::string input);
+    void set_type(std::string s_type);
     std::string get_type();
-    std::string get_username();
-    std::string get_password();
-
-    void set_type(std::string stype);
-    void set_username(std::string);
-    void set_password(std::string);
-
     bool validate(std::string username, std::string password);
 };
 
 std::vector<std::string> opensudo();
-bool login(std::string type, users user);
+bool login(users user);
 void admin_session();
 void client_session();
-void append_users_info(std::string input);
 
 std::string p_encriptado(std::string text);
 std::string p_desencriptado(std::string binary);
