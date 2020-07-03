@@ -63,7 +63,7 @@
 
     \begin{center}
 
-        \section*{Las interrupciones en los microprocesadores: historia y su aplicación en los sitemas actuales}
+        \section*{Las interrupciones en los microprocesadores: historia y su aplicación en los sistemas actuales}
 
     \end{center}
         
@@ -76,17 +76,30 @@
    
    \vspace{1cm}
    
-       Pero vale la vena preguntar, ¿para que querríamos interrumpir un proceso que la CPU se encuentra ejecutando? La respuesta nos indica de donde surgió la necesidad de incluir interrupciones como parte del funcionamiento de un microprocesador. Sólo basta imaginar una CPU que está recibiendo múltiples entradas y salidas desde y hacia los sistemas periféricos, los cuales tienen velocidades de reloj muy distintos entre ellos, siendo por lo general el más veloz el del procesador mismo, con esto en mente, si el microprocesador se ecuentra realizando un proceso con una de esas entradas, está forzado a esperar a recibir una respuesta, y eso ocurriía con todas las entradas en las que inteviene el mismo proceso, es un proceso "práctico" pero poco eficiente. Con las interrupciones, esta situación cambia por completo, ya que el procesador puede interrumpir dichos procesos que requieren más tiempo, para ejectuar otros que se pueden llevar a cambo mientras tanto, optimizando así el tiempo de ejecución y los recursos del sistema \cite{Mike Silva 2013}.
+       Pero vale la vena preguntar, ¿para que querríamos interrumpir un proceso que la CPU se encuentra ejecutando? La respuesta nos indica de donde surgió la necesidad de incluir interrupciones como parte del funcionamiento de un microprocesador. Sólo basta imaginar una CPU que está recibiendo múltiples entradas y salidas desde y hacia los sistemas periféricos, los cuales tienen velocidades de reloj muy distintos entre ellos, siendo por lo general el más veloz el del procesador mismo, con esto en mente, si el microprocesador se encuentra realizando un proceso con una de esas entradas, está forzado a esperar a recibir una respuesta, y eso ocurría con todas las entradas en las que inteviene el mismo proceso. 
+       
+   \vspace{1cm}
+       
+       Este método se denomina consulta o "polling" y aunque es un proceso práctico, es poco eficiente. Con las interrupciones, esta situación cambia por completo, ya que el procesador puede interrumpir dichos procesos que requieren más tiempo, para ejecutar otros que se pueden llevar a cambo mientras tanto, optimizando así el tiempo de ejecución y los recursos del sistema \cite{Mike Silva 2013}.
        
        
    \vspace{1cm}
-      Con esto en mente as interrupciones son un recurso extremadamente útil, pero no siempre existieron. Su origen se remonta a 1954, año donde se construyó el computador NBS DYSEA, que tuvo la fortuna de ser el primer en contar con interrupciones I/O (entrada/salida), un año depués se crearon interrupciones tipo túneles de viento y se realizaron diversas implementaciones en esta tecnología en los años venideros. Fue hasta 1957 que E.W. Dijkstra, un científico en computación que trabajó el problema profundamente, decidió embarcarse al desarrollo de esta tecnología, incluyo llegó a expresar una frase en su trabajo que pone en perspectiva el riesgo de incluir interrupciones en sistemas con microprocesadores: "Fue un gran invento para también una caja de Pandora".
+   
+      Con esto en mente as interrupciones son un recurso extremadamente útil, pero no siempre existieron. Su origen se remonta a 1954, año donde se construyó el computador NBS DYSEA, que tuvo la fortuna de ser el primer en contar con interrupciones I/O (entrada/salida), un año después se crearon interrupciones tipo túneles de viento y se realizaron diversas implementaciones en esta tecnología en los años venideros. 
+      
+   \vspace{1cm}   
+   
+      Fue hasta 1957 que E.W. Dijkstra, un científico en computación que trabajó el problema profundamente, decidió embarcarse al desarrollo de esta tecnología, incluyo llegó a expresar una frase en su trabajo que pone en perspectiva el riesgo de incluir interrupciones en sistemas con microprocesadores: "Fue un gran invento para también una caja de Pandora".
+      
+  \vspace{1cm}
+  
+    A partir de este evento, se hicieron desarrollos más significativos: en 1960 la mayoría de los computadores ya soportaban interruptores en su sistema, en 1971 se da la primera patente de un sistema de interrupciones llamada "Interrupt coalescing" y sigue la investigación y mejora continua en ésta área de la computación. En la década de los 80 esta tecnología continua desarrollándose pero aplicados en Ethernet de alta velocidad y controladores de almacenamiento de alta velocidad, hasta los años 2000 y la actualidad, se crea un sin número de patentes, lo que trae consigo una alta competencia en éste campo, en su mayoría para aplicaciones de redes.
       
       \cite{Irfan Ahmad 2014}.
    
    \vspace{1cm}
    
-       Exiten distintos tipos de interrupciones que dependen del procesador, acá se hace mención a los más comunes:
+       Existen distintos tipos de interrupciones que dependen del procesador, acá se hace mención a los más comunes:
        
        
        
