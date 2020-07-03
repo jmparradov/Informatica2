@@ -69,14 +69,29 @@
         
     \vspace{1cm}
        Las interrupciones son una estrategia silenciosa que permite la optimización de los recursos de procesamiento de un microprocesador, respecto a sus dispositivos periféricos.
-       
+   
+   \vspace{1cm}
+   
        Éstas se definen como una señal que recibe el CPU para inmediatamente ejecutar un código que está específicamente escrito para responder a la causa de dicha interrupción \cite{Mike Silva 2013}.
+   
+   \vspace{1cm}
+   
+       Pero vale la vena preguntar, ¿para que querríamos interrumpir un proceso que la CPU se encuentra ejecutando? La respuesta nos indica de donde surgió la necesidad de incluir interrupciones como parte del funcionamiento de un microprocesador. Sólo basta imaginar una CPU que está recibiendo múltiples entradas y salidas desde y hacia los sistemas periféricos, los cuales tienen velocidades de reloj muy distintos entre ellos, siendo por lo general el más veloz el del procesador mismo, con esto en mente, si el microprocesador se ecuentra realizando un proceso con una de esas entradas, está forzado a esperar a recibir una respuesta, y eso ocurriía con todas las entradas en las que inteviene el mismo proceso, es un proceso "práctico" pero poco eficiente. Con las interrupciones, esta situación cambia por completo, ya que el procesador puede interrumpir dichos procesos que requieren más tiempo, para ejectuar otros que se pueden llevar a cambo mientras tanto, optimizando así el tiempo de ejecución y los recursos del sistema \cite{Mike Silva 2013}.
        
-       Pero vale la vena preguntar, ¿para que querríamos interrumpir un proceso que la CPU se encuentra ejecutando? La respuesta nos indica de donde surgió la necesidad de incluir interrupciones como parte del funcionamiento de un microprocesador. Sólo basta imaginar una CPU que está recibiendo múltiples entradas y salidas desde y hacia los sistemas periféricos, 
+       
+   \vspace{1cm}
+      Con esto en mente as interrupciones son un recurso extremadamente útil, pero no siempre existieron. Su origen se remonta a 1954, año donde se construyó el computador NBS DYSEA, que tuvo la fortuna de ser el primer en contar con interrupciones I/O (entrada/salida), un año depués se crearon interrupciones tipo túneles de viento y se realizaron diversas implementaciones en esta tecnología en los años venideros. Fue hasta 1957 que E.W. Dijkstra, un científico en computación que trabajó el problema profundamente, decidió embarcarse al desarrollo de esta tecnología, incluyo llegó a expresar una frase en su trabajo que pone en perspectiva el riesgo de incluir interrupciones en sistemas con microprocesadores: "Fue un gran invento para también una caja de Pandora".
+      
+      \cite{Irfan Ahmad 2014}.
+   
+   \vspace{1cm}
+   
+       Exiten distintos tipos de interrupciones que dependen del procesador, acá se hace mención a los más comunes:
        
        
        
-    \vspace{1cm}
+       
+    
          
     
         
@@ -86,6 +101,9 @@
 \bibliography{bibliografía}
 
   \bibitem{Mike Silva 2013} Mike Silva, Introduction to Microcontrollers - Interrupts, 2013.
+  
+  \bibitem{Irfan Ahmad 2014} Irfan Ahmad, History of Interrupts, 2013.
+  
 \end{thebibliography}
 
 \end{document}
