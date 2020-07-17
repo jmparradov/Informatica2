@@ -1,0 +1,14 @@
+#ifndef BACKGROUND_H
+#define BACKGROUND_H
+
+#include <QLabel>
+#include <QMovie>
+
+#define M 80         // Peso Bicicleta kg
+class character:public QObject, public QLabel
+{
+public:
+    character();
+};
+
+#endif // BACKGROUND_H
