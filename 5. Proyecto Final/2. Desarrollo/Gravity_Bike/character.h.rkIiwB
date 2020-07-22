@@ -1,21 +1,20 @@
 #ifndef BACKGROUND_H
 #define BACKGROUND_H
 
-#include <QLabel>
-#include <QMovie>
+#include <QGraphicsPixmapItem>
 #include <QDebug>
 
 #define M 80         // Peso Bicicleta kg
 
-class character: public QLabel
+class character:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
     character();
-    QMovie *movie;
+
 
 public slots:
-    void OnFrameChanged(int /*frame*/);
+
 };
 
 #endif // BACKGROUND_H

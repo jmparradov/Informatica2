@@ -32,8 +32,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // insert character
     character *biker  = new character();
-    scene->addItem(biker);
-
+    biker->setGeometry(QRectF(10,10,30,80))
+    scene->addWidget(biker);
+    rects.push_back(biker);
 
 
     //scene->addItem(g_item)       // body
@@ -47,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     view->setFixedSize(scenex,sceney);
     view->maximumSize();
     view->show();
-    //view->centerOn(rects.at(0)->x(),rects.at(0)->y());
+    view->centerOn(rects.at(0)->x(),rects.at(0)->y());
 }
 
 MainWindow::~MainWindow()

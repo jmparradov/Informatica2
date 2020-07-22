@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "character.h"
 #include "road.h"
 #include "QMovie"
 #include "QLabel"
@@ -32,8 +31,9 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     // insert character
-    character *item  = new character();
-    scene->addWidget(gif_anim);
+    character *biker  = new character();
+    scene->addWidget(biker);
+    rects.push_back(biker);
 
 
     //scene->addItem(g_item)       // body
@@ -47,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
     view->setFixedSize(scenex,sceney);
     view->maximumSize();
     view->show();
+    view->centerOn(rects.at(0)->x(),rects.at(0)->y());
 }
 
 MainWindow::~MainWindow()

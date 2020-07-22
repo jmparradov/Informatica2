@@ -22,9 +22,9 @@ void character::OnFrameChanged(int /*frame*/)
 {
     QPixmap pixmap = movie->currentPixmap();
     QMatrix rm;
-    rm.rotate(90);
+    rm.rotate(30);
     pixmap = pixmap.transformed(rm);
     setPixmap(pixmap);
 
-    qDebug() << "rotated";
+
 }
