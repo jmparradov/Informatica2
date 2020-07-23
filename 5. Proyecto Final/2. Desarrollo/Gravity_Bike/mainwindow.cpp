@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "road.h"
+#include "wheel.h"
 #include "QMovie"
 #include "QLabel"
 
@@ -31,10 +32,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     // insert character
-    character *biker  = new character();
-    scene->addItem(biker);
+    //character *biker  = new character();
+    //scene->addItem(biker);
 
-
+    //Create frist body
+    wheel * star = new wheel();
+    scene->addItem(star);
 
     //scene->addItem(g_item)       // body
 

@@ -1,0 +1,51 @@
+#include "wheel.h"
+
+wheel::wheel()
+{
+    //draw it and locate
+    setRect(100,100,40,40);
+
+    // color
+    setBrush(QBrush(Qt::blue));
+
+    vo = 0;
+
+    //make corpus focusable
+    setFlag(QGraphicsItem::ItemIsFocusable);
+    setFocus();
+
+    //connect
+    QTimer *timer = new QTimer();
+    connect(timer,SIGNAL(timeout()),this, SLOT(move()));
+    timer->start(t);
+}
+
+void wheel::move(){
+
+    // Function to apply the physis movement of the model
+    double dx = 0;
+    double dy = 0;
+    double vx = 0; // x axis velocity
+    double vy = 0; // y axis velocity
+    double teta = 90;
+    double a = 0;
+    double yp = 0;
+
+    //qDebug() << "Distance :" <<r;
+    //qDebug() << "teta " <<teta;
+
+    // acceleration components
+    a = g*sin(teta*PI/180);
+
+
+    yp =vo*(t/1000)+(0.5)*a*pow(t/1000,2);
+
+
+    dx = yp*cos(teta*PI/180);
+    dy = yp*cos(teta*PI/180);
+
+
+    setPos(x()+dx,y()+dy);
+
+
+}

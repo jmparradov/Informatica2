@@ -19,12 +19,14 @@ SOURCES += \
     character.cpp \
     main.cpp \
     mainwindow.cpp \
-    road.cpp
+    road.cpp \
+    wheel.cpp
 
 HEADERS += \
     character.h \
     mainwindow.h \
-    road.h
+    road.h \
+    wheel.h
 
 FORMS += \
     mainwindow.ui

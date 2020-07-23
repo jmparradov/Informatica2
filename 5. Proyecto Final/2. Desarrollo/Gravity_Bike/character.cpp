@@ -8,6 +8,9 @@ character::character()
     setPos(100,100);
     //setRotation(60);
 
+    QGraphicsEllipseItem *w1  = new QGraphicsEllipseItem();
+    QGraphicsEllipseItem *w2  = new QGraphicsEllipseItem();
+
 
 
 }

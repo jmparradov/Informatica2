@@ -21,6 +21,8 @@ public:
 
 public slots:
     void move();
+
+
 };
 
 #endif // ROAD_H

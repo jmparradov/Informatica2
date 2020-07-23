@@ -2,6 +2,7 @@
 #define BACKGROUND_H
 
 #include <QGraphicsPixmapItem>
+#include <QGraphicsEllipseItem>
 #include <QDebug>
 
 #define M 80         // Peso Bicicleta kg

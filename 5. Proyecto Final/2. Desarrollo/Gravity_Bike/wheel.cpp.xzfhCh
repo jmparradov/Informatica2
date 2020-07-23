@@ -1,0 +1,10 @@
+#include "wheel.h"
+
+wheel::wheel()
+{
+    //draw it and locate
+    setRect(100,100,40,40);
+
+    // color
+    setBrush(QBrush(Qt::blue));
+}
