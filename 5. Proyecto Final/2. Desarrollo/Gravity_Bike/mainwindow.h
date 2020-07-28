@@ -6,7 +6,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QDebug>
-#include "character.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

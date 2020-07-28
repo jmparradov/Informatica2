@@ -13,7 +13,6 @@ class character:public QObject, public QGraphicsPixmapItem
 public:
     character();
 
-
 public slots:
 
 };

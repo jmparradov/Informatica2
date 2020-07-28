@@ -341,10 +341,6 @@ debug/moc_mainwindow.cpp: ../Gravity_Bike/mainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QDebug \
-		../Gravity_Bike/character.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsEllipseItem \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/bin/moc.exe
 	C:\Qt\Qt5.13.2\5.13.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/MauroPC/Dropbox/UDEA Ingeniería Electrónica/Semestre 2/2. Informática II/2. Teórico/0. Respository GitHub/5. Proyecto Final/2. Desarrollo/build-Gravity_Bike-Desktop_Qt_5_13_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/MauroPC/Dropbox/UDEA Ingeniería Electrónica/Semestre 2/2. Informática II/2. Teórico/0. Respository GitHub/5. Proyecto Final/2. Desarrollo/Gravity_Bike" -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtANGLE -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore -I. -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.13.2/Tools/mingw730_64/x86_64-w64-mingw32/include ..\Gravity_Bike\mainwindow.h -o debug\moc_mainwindow.cpp
@@ -439,6 +435,17 @@ debug/moc_wheel.cpp: ../Gravity_Bike/wheel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qimage.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qpixelformat.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QBrush \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QDebug \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qfont.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qpen.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/bin/moc.exe
 	C:\Qt\Qt5.13.2\5.13.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/MauroPC/Dropbox/UDEA Ingeniería Electrónica/Semestre 2/2. Informática II/2. Teórico/0. Respository GitHub/5. Proyecto Final/2. Desarrollo/build-Gravity_Bike-Desktop_Qt_5_13_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/MauroPC/Dropbox/UDEA Ingeniería Electrónica/Semestre 2/2. Informática II/2. Teórico/0. Respository GitHub/5. Proyecto Final/2. Desarrollo/Gravity_Bike" -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtANGLE -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore -I. -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.13.2/Tools/mingw730_64/x86_64-w64-mingw32/include ..\Gravity_Bike\wheel.h -o debug\moc_wheel.cpp
@@ -683,11 +690,7 @@ debug/main.o: ../Gravity_Bike/main.cpp ../Gravity_Bike/mainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qscrollarea.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qframe.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QDebug \
-		../Gravity_Bike/character.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsEllipseItem
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Gravity_Bike\main.cpp
 
 debug/mainwindow.o: ../Gravity_Bike/mainwindow.cpp ../Gravity_Bike/mainwindow.h \
@@ -815,26 +818,19 @@ debug/mainwindow.o: ../Gravity_Bike/mainwindow.cpp ../Gravity_Bike/mainwindow.h 
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QDebug \
-		../Gravity_Bike/character.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsEllipseItem \
 		ui_mainwindow.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qstatusbar.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QWidget \
 		../Gravity_Bike/road.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QPainterPath \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QPainter \
-		../Gravity_Bike/wheel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QObject \
+		../Gravity_Bike/wheel.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsEllipseItem \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QBrush \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qbasictimer.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QMovie \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qmovie.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qimagereader.h \
@@ -945,7 +941,8 @@ debug/road.o: ../Gravity_Bike/road.cpp ../Gravity_Bike/road.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qbrush.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qfontinfo.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qfont.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qfontmetrics.h
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QObject
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\road.o ..\Gravity_Bike\road.cpp
 
 debug/wheel.o: ../Gravity_Bike/wheel.cpp ../Gravity_Bike/wheel.h \
@@ -1037,7 +1034,25 @@ debug/wheel.o: ../Gravity_Bike/wheel.cpp ../Gravity_Bike/wheel.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qrgba64.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qimage.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qpixelformat.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qtransform.h
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QBrush \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QTimer \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QDebug \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qfont.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qpen.h \
+		../Gravity_Bike/road.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QPainterPath \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QPainter \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qpainter.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qfontinfo.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qfontmetrics.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\wheel.o ..\Gravity_Bike\wheel.cpp
 
 debug/moc_character.o: debug/moc_character.cpp 
