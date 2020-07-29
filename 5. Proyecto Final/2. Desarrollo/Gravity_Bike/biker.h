@@ -1,5 +1,5 @@
-#ifndef WHEEL_H
-#define WHEEL_H
+#ifndef BIKER_H
+#define BIKER_H
 
 #include <QObject>
 #include <QGraphicsEllipseItem>
@@ -11,13 +11,15 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
-class wheel:public QObject, public QGraphicsEllipseItem
+class biker:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    wheel();
-    bool checkColliding(int xp0,int yp0,int xp1,int yp1,int xp2,int yp2,int xp3,int yp3);
-    int radio;
+    biker();
+    bool checkColliding(int xp0,int yp0,int xp1,int yp1,int xp2,int yp2,int xp3,int yp3, double dx);
+    int width;
+    int height;
+
     double teta = 90;
 
 public slots:
