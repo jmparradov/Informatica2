@@ -1,4 +1,5 @@
 #include "falling.h"
+
 #define E 150        // px/m
 #define T 1          // unidad de tiempo en ms
 #define PI 3.14159265
@@ -9,8 +10,9 @@ falling::falling()
 {
     int radio = 20;
     auto Go = bind(std::uniform_int_distribution<>(5,20),std::default_random_engine());
-    auto Xo = bind(std::uniform_int_distribution<>(20,sceney),std::default_random_engine());
-
+    //auto Xo = bind(std::uniform_int_distribution<>(0,10),std::default_random_engine());
+    double Xo =  qrand() / (sceney);
+    qDebug() <<Xo;
     G = Go();
     vo = 0;
     teta = 90;
@@ -18,8 +20,8 @@ falling::falling()
     qDebug() << "starting falling";
 
     //draw it and locate
-    setRect(0,0,radio,radio);
-    setPos(0,Xo());
+    setRect(Xo*30,0,radio,radio);
+    setPos(Xo*30,0);
 
     //make item  focusable
     setFlag(QGraphicsItem::ItemIsFocusable);
@@ -46,6 +48,12 @@ void falling::move(){
 
     vo += a*(tp);
     setPos(x()+dx,y()+dy);
+
+    if(y()>sceney){
+        teta = -90;
+        vo *= 0.5;
+    }
+
 }
 
 

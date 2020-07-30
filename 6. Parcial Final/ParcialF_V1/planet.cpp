@@ -1,4 +1,5 @@
 #include "planet.h"
+#include "falling.h"
 
 #define scenex 1500
 #define sceney 1000
@@ -60,8 +61,13 @@ void planet::move(){
     double vx = 0; // x axis velocity
     double vy = 0; // y axis velocity
 
-
     foreach(QGraphicsItem *item, scene()->items()){
+        /*if (item->type() == falling::Type){
+                setBrush(QBrush(Qt::white));
+                scene()->removeItem(qgraphicsitem_cast<falling*>(this));
+                delete qgraphicsitem_cast<falling*>(this);
+          }*/
+
         if (item->type() == planet::Type){
             if (this != qgraphicsitem_cast<planet*>(item)){
                double xi = qgraphicsitem_cast<planet*>(item)->xp;
