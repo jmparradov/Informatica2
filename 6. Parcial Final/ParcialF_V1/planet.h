@@ -11,6 +11,7 @@
 #include <QLabel>
 
 // Corpus object, this object contains the atributies to simulate a physical movements according to newton laws
+
 class planet:public QObject, public QGraphicsEllipseItem
 {
     Q_OBJECT
@@ -22,9 +23,6 @@ public:
     int get_virtual_y();
     void set_velocity(double vxi,double vyi);
     void setmass(double mi);
-    void set_info_label(int xi,int yi);
-
-    QGraphicsTextItem *text = new QGraphicsTextItem();
 
 private:
     double xp;
@@ -36,6 +34,7 @@ private:
     double a;
 
 
+    double vo;
 public slots:
     void move();
 };
