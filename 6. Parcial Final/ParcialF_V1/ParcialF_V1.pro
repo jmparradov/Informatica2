@@ -16,15 +16,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    biker.cpp \
     main.cpp \
     mainwindow.cpp \
-    road.cpp
+    planet.cpp
 
 HEADERS += \
-    biker.h \
     mainwindow.h \
-    road.h
+    planet.h
 
 FORMS += \
     mainwindow.ui
@@ -33,6 +31,3 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-DISTFILES += \
-    sources/world1.png

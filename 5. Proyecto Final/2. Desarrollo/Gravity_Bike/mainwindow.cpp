@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "road.h"
-#include "wheel.h"
+#include "biker.h"
 #include "QMovie"
 #include "QLabel"
 
@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Insert background
     QPixmap pim("../Gravity_Bike/sources/test1.png");
-    bool loaded = pim.load("../Gravity_Bike/sources/test1.png");
+    bool loaded = pim.load("../Gravity_Bike/sources/world1.png");
 
     if (loaded){
         scene->setBackgroundBrush(pim); }
@@ -54,22 +54,16 @@ MainWindow::MainWindow(QWidget *parent)
     scene->addItem(sect10);
 
 
-    // insert character
-    //character *biker  = new character();
-    //scene->addItem(biker);
-
-    //Testing
-    wheel * star = new wheel();
+    //Player 1
+    biker * star = new biker();
     scene->addItem(star);
-
-    //scene->addItem(g_item)       // body
 
 
     //Add View and define its characteristics
     QGraphicsView * view = new QGraphicsView(scene);
     scene->setSceneRect(0,0,worldx,worldy);
-    //view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    //view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->resize(scenex,sceney);
     //view->setFixedSize(scenex,sceney);
     view->show();
