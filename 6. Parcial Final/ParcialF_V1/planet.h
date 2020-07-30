@@ -10,7 +10,6 @@
 #include <tgmath.h>
 #include <QLabel>
 
-// Corpus object, this object contains the atributies to simulate a physical movements according to newton laws
 
 class planet:public QObject, public QGraphicsEllipseItem
 {

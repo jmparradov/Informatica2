@@ -36,9 +36,9 @@ planet::planet(int xi, int yi, double vx, double vy, double mi,  int radio, QCol
     setPos(xi-radio/2,yi-radio/2);
     setBrush(QBrush(color));
 
-    //make corpus focusable
+    /* make corpus focusable
     setFlag(QGraphicsItem::ItemIsFocusable);
-    setFocus();
+    setFocus(); */
 
     //connect
     QTimer *timer = new QTimer();
@@ -87,8 +87,6 @@ void planet::move(){
 
                teta = atan2(ydif,xdif)*(180/PI);    // angle between bodies
 
-               //qDebug() << "Distance :" <<r;
-               //qDebug() << "teta " <<teta;
 
                // acceleration components
                ax += (G*mi*cos(teta*PI/180))/pow(r,2);

@@ -6,11 +6,11 @@
 #include <QGraphicsEllipseItem>
 #include <QGraphicsView>
 #include <QTimer>
-#include <QWidget>
 #include <QDebug>
 #include <QMainWindow>
-#include <QPushButton>
+
 #include "planet.h"
+#include "falling.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,8 +23,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QGraphicsScene * scene = new QGraphicsScene();
+
 private:
     Ui::MainWindow *ui;
+
+
 };
 #endif // MAINWINDOW_H
+

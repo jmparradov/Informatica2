@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QGraphicsScene * scene = new QGraphicsScene();
+    QGraphicsView * view = new QGraphicsView(scene);
+
 
     //Insert background
     QPixmap pim("../ParcialF_V1/images/background.jpg");
@@ -47,8 +50,12 @@ MainWindow::MainWindow(QWidget *parent)
     scene->addItem(planet4);
 
 
+    // create falling object
+    falling * object1 = new falling();
+    scene->addItem(object1);
+
     //Add View and define its characteristics
-    QGraphicsView * view = new QGraphicsView(scene);
+
     scene->setSceneRect(0,0,scenex,sceney);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -57,6 +64,15 @@ MainWindow::MainWindow(QWidget *parent)
     view->show();
 
 }
+
+/*
+void MainWindow::keyPressEvent(QKeyEvent *event){
+    if(event->key() == Qt::Key_W){
+        falling * object1 = new falling();
+        scene->addItem(object1);
+        qDebug() << "adding object";
+    }
+} */
 
 MainWindow::~MainWindow()
 {

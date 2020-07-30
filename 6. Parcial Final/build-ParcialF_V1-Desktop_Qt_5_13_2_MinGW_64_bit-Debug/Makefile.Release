@@ -365,19 +365,17 @@ release/moc_mainwindow.cpp: ../ParcialF_V1/mainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QTimer \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qbasictimer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QDebug \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QMainWindow \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qicon.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QKeyEvent \
 		../ParcialF_V1/planet.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QObject \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qlabel.h \
+		../ParcialF_V1/falling.h \
 		release/moc_predefs.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/bin/moc.exe
 	C:\Qt\Qt5.13.2\5.13.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/MauroPC/Dropbox/UDEA Ingeniería Electrónica/Semestre 2/2. Informática II/2. Teórico/0. Respository GitHub/6. Parcial Final/build-ParcialF_V1-Desktop_Qt_5_13_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/MauroPC/Dropbox/UDEA Ingeniería Electrónica/Semestre 2/2. Informática II/2. Teórico/0. Respository GitHub/6. Parcial Final/ParcialF_V1" -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtANGLE -IC:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore -I. -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.13.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.13.2/Tools/mingw730_64/x86_64-w64-mingw32/include ..\ParcialF_V1\mainwindow.h -o release\moc_mainwindow.cpp
@@ -771,19 +769,17 @@ release/main.o: ../ParcialF_V1/main.cpp ../ParcialF_V1/mainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QTimer \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qbasictimer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QDebug \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QMainWindow \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qicon.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QKeyEvent \
 		../ParcialF_V1/planet.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QObject \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qlabel.h
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qlabel.h \
+		../ParcialF_V1/falling.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\ParcialF_V1\main.cpp
 
 release/mainwindow.o: ../ParcialF_V1/mainwindow.cpp ../ParcialF_V1/mainwindow.h \
@@ -911,28 +907,18 @@ release/mainwindow.o: ../ParcialF_V1/mainwindow.cpp ../ParcialF_V1/mainwindow.h 
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QTimer \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/qbasictimer.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QDebug \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QMainWindow \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/qicon.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtGui/QKeyEvent \
 		../ParcialF_V1/planet.h \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QObject \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qlabel.h \
-		ui_mainwindow.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtCore/QVariant \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QMenuBar \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qmenu.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qaction.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qactiongroup.h \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/QStatusBar \
-		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/include/QtWidgets/qstatusbar.h
+		../ParcialF_V1/falling.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\ParcialF_V1\mainwindow.cpp
 
 release/planet.o: ../ParcialF_V1/planet.cpp ../ParcialF_V1/planet.h \

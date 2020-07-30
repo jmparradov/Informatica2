@@ -8,16 +8,17 @@
 #include <QGraphicsView>
 #include <stdlib.h>
 #include <random>
-
+#include <QKeyEvent>
 
 class falling:public QObject, public QGraphicsEllipseItem
 {
     Q_OBJECT
 public:
     falling();
+    void keyPressEvent(QKeyEvent *event);
 
     double teta;
-    double G;
+    int G;
 
 public slots:
     void move();
