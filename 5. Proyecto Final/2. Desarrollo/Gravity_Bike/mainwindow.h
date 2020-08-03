@@ -20,8 +20,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    // atributes
+    std::map<double, std::vector<double>> lines;
+    void field(int xp0, int yp0,int xp1,int yp1,int xp2,int yp2,int xp3,int yp3);
+    void set_up();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui;    
+    QGraphicsScene * scene = new QGraphicsScene(this);
+    QGraphicsView * view = new QGraphicsView(this);
 };
 #endif // MAINWINDOW_H

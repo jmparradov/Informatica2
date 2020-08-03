@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "road.h"
 #include "biker.h"
+#include "obstacle.h"
 #include "QMovie"
 #include "QLabel"
 
@@ -11,16 +12,18 @@
 #define worldx 15024
 #define worldy 6736
 
+#define PI 3.14159265
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QGraphicsScene * scene = new QGraphicsScene();
+    view->setScene(scene);
 
     // Insert background
-    QPixmap pim("../Gravity_Bike/sources/test1.png");
-    bool loaded = pim.load("../Gravity_Bike/sources/world1.png");
+    QPixmap pim(":/sources/worlds/world1.png");
+    bool loaded = pim.load(":/sources/worlds/world1.png");
 
     if (loaded){
         scene->setBackgroundBrush(pim); }
@@ -53,21 +56,76 @@ MainWindow::MainWindow(QWidget *parent)
     scene->addItem(sect9);
     scene->addItem(sect10);
 
+    // set up lines world
+    set_up();
 
     //Player 1
-    biker * star = new biker();
+    biker * star = new biker(lines);
     scene->addItem(star);
 
+    // insert obstacles
+    obstacle *barrel1  = new obstacle(lines, 1500, "barrel");
+    scene->addItem(barrel1);
+
+    obstacle *barrel2  = new obstacle(lines, 1000, "barrel");
+    scene->addItem(barrel2);
 
     //Add View and define its characteristics
-    QGraphicsView * view = new QGraphicsView(scene);
     scene->setSceneRect(0,0,worldx,worldy);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->resize(scenex,sceney);
+    this->resize(scenex,sceney);
     //view->setFixedSize(scenex,sceney);
     view->show();
 
+}
+
+void MainWindow::set_up(){
+
+    foreach(QGraphicsItem *item, scene->items()){
+        if (item->type() == 65536){//road::Type){
+            int xp0 = qgraphicsitem_cast<road*>(item)->xp0;
+            int yp0 = qgraphicsitem_cast<road*>(item)->yp0;
+
+            int xp1 = qgraphicsitem_cast<road*>(item)->xp1;
+            int yp1 = qgraphicsitem_cast<road*>(item)->yp1;
+
+            int xp2 = qgraphicsitem_cast<road*>(item)->xp2;
+            int yp2 = qgraphicsitem_cast<road*>(item)->yp2;
+
+            int xp3 = qgraphicsitem_cast<road*>(item)->xp3;
+            int yp3 = qgraphicsitem_cast<road*>(item)->yp3;
+
+
+            field(xp0,yp0,xp1,yp1,xp2,yp2,xp3,yp3);
+
+        }
+    }
+}
+
+void MainWindow::field(int xp0, int yp0,int xp1,int yp1,int xp2,int yp2,int xp3,int yp3){
+
+    for(int i = 0;i<=100;i++){
+
+        double tt = i*(1e-2);
+        double t_1 = (i-1)*(1e-2);
+        double t1 = (i+1)*(1e-2);
+
+        double Bx = (pow((1-tt),3)*xp0) +(3*(pow((1-tt),2))*tt*xp1) +(3*(1-tt)*pow(tt,2)*xp2)+(pow(tt,3)*xp3);
+        double By = (pow((1-tt),3)*yp0) +(3*(pow((1-tt),2))*tt*yp1) +(3*(1-tt)*pow(tt,2)*yp2)+(pow(tt,3)*yp3);
+
+        double Bx_1 = (pow((1-t_1),3)*xp0) +(3*(pow((1-t_1),2))*t_1*xp1) +(3*(1-t_1)*pow(t_1,2)*xp2)+(pow(t_1,3)*xp3);
+        double By_1 = (pow((1-t_1),3)*yp0) +(3*(pow((1-t_1),2))*t_1*yp1) +(3*(1-t_1)*pow(t_1,2)*yp2)+(pow(t_1,3)*yp3);
+
+        double Bx1 = (pow((1-t1),3)*xp0) +(3*(pow((1-t1),2))*t1*xp1) +(3*(1-t1)*pow(t1,2)*xp2)+(pow(t1,3)*xp3);
+        double By1 = (pow((1-t1),3)*yp0) +(3*(pow((1-t1),2))*t1*yp1) +(3*(1-t1)*pow(t1,2)*yp2)+(pow(t1,3)*yp3);
+
+        lines[Bx].push_back(By);
+
+        double teta = atan2((By1 - By_1),(Bx1 - Bx_1))*(180/PI);
+        lines[Bx].push_back(teta);
+    }
 }
 
 MainWindow::~MainWindow()

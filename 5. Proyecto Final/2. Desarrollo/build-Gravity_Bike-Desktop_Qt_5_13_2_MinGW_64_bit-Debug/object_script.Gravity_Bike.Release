@@ -1,0 +1,15 @@
+release/biker.o
+release/createuser.o
+release/login_form.o
+release/main.o
+release/mainmenu.o
+release/mainwindow.o
+release/obstacle.o
+release/road.o
+release/qrc_Background.o
+release/moc_biker.o
+release/moc_createuser.o
+release/moc_login_form.o
+release/moc_mainmenu.o
+release/moc_mainwindow.o
+release/moc_obstacle.o

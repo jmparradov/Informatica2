@@ -17,8 +17,9 @@ class biker:public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     // Methods
-    biker();
-    bool checkColliding(int xp0,int yp0,int xp1,int yp1,int xp2,int yp2,int xp3,int yp3, double dx);
+    biker(std::map<double, std::vector<double>> lines);
+    bool checkrolling(double dx);
+    bool checkColliding();
     void keyPressEvent(QKeyEvent *event);
 
     // Attibutes
@@ -32,6 +33,7 @@ public:
     bool speed;
     bool Break;
     bool flying;
+    std::map<double, std::vector<double>> lines;
 
 public slots:
     void move();

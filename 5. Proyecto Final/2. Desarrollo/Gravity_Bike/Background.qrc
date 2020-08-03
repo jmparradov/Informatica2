@@ -1,0 +1,8 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>sources/worlds/world1.png</file>
+    <file>sources/objects/barrel.png</file>
+    <file>sources/menus/main.png</file>
+    <file>sources/users/users.txt</file>
+</qresource>
+</RCC>

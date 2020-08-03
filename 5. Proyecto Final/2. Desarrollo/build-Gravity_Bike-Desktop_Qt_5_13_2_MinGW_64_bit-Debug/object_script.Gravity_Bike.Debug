@@ -1,0 +1,15 @@
+debug/biker.o
+debug/createuser.o
+debug/login_form.o
+debug/main.o
+debug/mainmenu.o
+debug/mainwindow.o
+debug/obstacle.o
+debug/road.o
+debug/qrc_Background.o
+debug/moc_biker.o
+debug/moc_createuser.o
+debug/moc_login_form.o
+debug/moc_mainmenu.o
+debug/moc_mainwindow.o
+debug/moc_obstacle.o

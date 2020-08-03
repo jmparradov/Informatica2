@@ -17,16 +17,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     biker.cpp \
+    createuser.cpp \
+    game_options.cpp \
+    login_form.cpp \
     main.cpp \
+    mainmenu.cpp \
     mainwindow.cpp \
+    obstacle.cpp \
     road.cpp
 
 HEADERS += \
     biker.h \
+    createuser.h \
+    game_options.h \
+    login_form.h \
+    mainmenu.h \
     mainwindow.h \
+    obstacle.h \
     road.h
 
 FORMS += \
+    createuser.ui \
+    game_options.ui \
+    login_form.ui \
+    mainmenu.ui \
     mainwindow.ui
 
 # Default rules for deployment.
@@ -34,5 +48,5 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    sources/world1.png
+RESOURCES += \
+    Background.qrc
