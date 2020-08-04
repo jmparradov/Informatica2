@@ -51,10 +51,6 @@ obstacle::obstacle(std::map<double, std::vector<double>> line, double Xo, std::s
     }
 
 
-
-
-
-
     setPos(it->first,Yo-height);
     qDebug() << Xo;
 

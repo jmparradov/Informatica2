@@ -7,6 +7,7 @@
 #include <QGraphicsView>
 #include <QDebug>
 #include "game_over.h"
+#include "load.h"
 
 
 QT_BEGIN_NAMESPACE

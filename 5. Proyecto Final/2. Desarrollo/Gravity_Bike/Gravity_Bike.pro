@@ -21,6 +21,7 @@ SOURCES += \
     game_options.cpp \
     game_over.cpp \
     howto.cpp \
+    load.cpp \
     login_form.cpp \
     main.cpp \
     mainmenu.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     game_options.h \
     game_over.h \
     howto.h \
+    load.h \
     login_form.h \
     mainmenu.h \
     mainwindow.h \
@@ -47,6 +49,7 @@ FORMS += \
     game_options.ui \
     game_over.ui \
     howto.ui \
+    load.ui \
     login_form.ui \
     mainmenu.ui \
     mainwindow.ui \

@@ -20,6 +20,8 @@ private slots:
 
     void on_playbutton_clicked();
 
+    void on_backbutton_2_clicked();
+
 private:
     Ui::game_options *ui;
 };

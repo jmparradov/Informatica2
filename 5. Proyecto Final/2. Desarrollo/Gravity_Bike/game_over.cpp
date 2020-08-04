@@ -38,6 +38,7 @@ void game_over::on_loadbutton_clicked()
 
 void game_over::on_menubutton_clicked()
 {
+    mainW->close();
     this->close();
     game_options *ww = new game_options();
     ww->show();

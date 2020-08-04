@@ -13,12 +13,13 @@ class game_over : public QWidget
     Q_OBJECT
 
 public:
-    explicit game_over(QString difficult, QString world, int  players,QMainWindow *mainW_s);
+    explicit game_over(QString difficult, QString world, int  players, QMainWindow *mainW_s);
     ~game_over();
 
     QString difficult;
     QString world;
     int  players;
+    QMainWindow *mainW;
 
 private slots:
     void on_restartbutton_clicked();

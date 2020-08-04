@@ -12,6 +12,8 @@ login_form::login_form(QWidget *parent) :
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
+
+
 }
 
 login_form::~login_form()

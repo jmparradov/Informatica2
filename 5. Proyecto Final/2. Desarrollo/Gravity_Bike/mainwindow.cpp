@@ -130,10 +130,65 @@ MainWindow::MainWindow(QString difficult, QString world, int  players):ui(new Ui
 
     if (difficult == "normal"){
 
+        obstacle *barrel2  = new obstacle(lines, 0.24, "barrel");
+        scene->addItem(barrel2);
+
+        obstacle *brush1  = new obstacle(lines, 0.3, "barrel");
+        scene->addItem(brush1);
+
+        obstacle *rock1  = new obstacle(lines, 0.35, "rock3");
+        scene->addItem(rock1);
+
+        obstacle *rock2  = new obstacle(lines, 0.6, "rock1");
+        scene->addItem(rock2);
+
+        obstacle *rock3  = new obstacle(lines, 0.06, "rock2");
+        scene->addItem(rock3);
+
+        obstacle *brush3  = new obstacle(lines, 0.54, "bush1");
+        scene->addItem(brush3);
+
+        obstacle *brush4  = new obstacle(lines, 0.65, "bush1");
+        scene->addItem(brush4);
+
+        obstacle *brush5  = new obstacle(lines, 0.79, "bush1");
+        scene->addItem(brush5);
+
+        obstacle *brush6  = new obstacle(lines, 0.95, "bush1");
+        scene->addItem(brush6);
+
+        obstacle *brush7  = new obstacle(lines, 0.94, "bush1");
+        scene->addItem(brush7);
+
     }
 
     if (difficult == "leyend"){
+        obstacle *barrel1  = new obstacle(lines, 0.24, "bush1");
+        scene->addItem(barrel1);
 
+        obstacle *barrel2  = new obstacle(lines, 0.34, "barrel");
+        scene->addItem(barrel2);
+
+        obstacle *brush1  = new obstacle(lines, 0.45, "barrel");
+        scene->addItem(brush1);
+
+        obstacle *rock1  = new obstacle(lines, 0.49, "rock3");
+        scene->addItem(rock1);
+
+        obstacle *rock2  = new obstacle(lines, 0.75, "rock1");
+        scene->addItem(rock2);
+
+        obstacle *rock3  = new obstacle(lines, 0.16, "rock2");
+        scene->addItem(rock3);
+
+        obstacle *brush2  = new obstacle(lines, 0.23, "bush1");
+        scene->addItem(brush2);
+
+        obstacle *brush3  = new obstacle(lines, 0.64, "bush1");
+        scene->addItem(brush3);
+
+        obstacle *wood1  = new obstacle(lines, 0.83, "wood");
+        scene->addItem(wood1);
     }
 
     //Add View and define its characteristics

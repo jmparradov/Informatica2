@@ -1,10 +1,11 @@
 #include "pause.h"
 #include "ui_pause.h"
+#include "load.h"
+#include "game_options.h"
+
 #define n 4
 
-pause::pause(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::pause)
+pause::pause(QMainWindow *mainW_s) : ui(new Ui::pause)
 {
     ui->setupUi(this);
     QPixmap bkgnd(":/sources/menus/pause.jpg");
@@ -12,6 +13,7 @@ pause::pause(QWidget *parent) :
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
+    mainW = mainW_s;
 }
 
 pause::~pause()
@@ -22,26 +24,39 @@ pause::~pause()
 void pause::on_continuebutton_clicked()
 {
     this->close();
+    game_options *ww = new game_options();
+    ww->show();
 
 }
 
 void pause::on_savebutton_clicked()
 {
+    bool ok;
+    QString name = QInputDialog::getText(this, tr("Input game name"),
+                                         tr("User name:"), QLineEdit::Normal,
+                                         QDir::home().dirName(), &ok);
+    if (ok && !name.isEmpty()){
+        std::string name_s = name.toUtf8().constData();
+        std::string gameinfo = get_gamesinfo();
 
-    std::string name = get_gamesinfo();
-    QString qstr = QString::fromStdString(name);
-    qDebug() << "to save" <<qstr;
-    append_users_info(name);
+        qDebug() << "to save" <<name;
+        append_users_info(name_s + "," + gameinfo);
+    }
 }
 
 void pause::on_loadbutton_clicked()
 {
+    mainW->close();
+    this->close();
+
+    load *ww = new load();
+    ww->show();
 
 }
 
 void pause::on_exitbutton_clicked()
 {
-
+    mainW->close();
 }
 
 std::string pause:: get_gamesinfo(){

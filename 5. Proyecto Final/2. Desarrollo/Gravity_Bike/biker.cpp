@@ -81,7 +81,7 @@ void biker::keyPressEvent(QKeyEvent *event){
         if (!paused){
             T = 0;
             QGraphicsTextItem *text;
-            pause *ww = new pause();
+            pause *ww = new pause(mainW);
             ww->show();
             text = scene()->addText("Press space to continue");
             text->setPos(x()-150, y()-100);
@@ -92,17 +92,16 @@ void biker::keyPressEvent(QKeyEvent *event){
             QString x_qs = QString::number(x());
             QString y_qs = QString::number(y());
             QString v_qs = QString::number(vo);
-            QString world_qs = ("montain");
-            QString difficulty_qs = ("normal");
+
+
+            std::string world_qs = world.toUtf8().constData();
+            std::string difficulty_qs = difficult.toUtf8().constData();
 
             std::string x_s = x_qs.toUtf8().constData();
             std::string y_s = y_qs.toUtf8().constData();
             std::string v_s = v_qs.toUtf8().constData();
-            std::string world_s = world_qs.toUtf8().constData();
-            std::string difficulty_s = difficulty_qs.toUtf8().constData();
 
-
-            append_users_info(world_s + "," + difficulty_s + "," + v_s + "," + x_s + "," + y_s);
+            append_users_info(world_qs + "," + difficulty_qs + "," + v_s + "," + x_s + "," + y_s);
             paused = true;
         }
         else {
@@ -122,7 +121,6 @@ void biker::move(){
     bool collision = checkColliding();
     if (collision && T != 0){
         T = 0;
-
         game_over *ww = new game_over(difficult, world,players, mainW);
         ww->show();
 

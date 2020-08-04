@@ -1,4 +1,5 @@
 #include "login_form.h"
+#include "game_options.h"
 #include "ui_game_options.h"
 #include "mainwindow.h"
 
@@ -94,4 +95,12 @@ void game_options::on_playbutton_clicked()
         MainWindow *ww = new MainWindow(difficult, world,players);
         ww->show();
     }
+}
+
+void game_options::on_backbutton_2_clicked()
+{
+    this->close();
+    load *ww = new load();
+    ww->show();
+
 }
