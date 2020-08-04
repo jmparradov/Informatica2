@@ -3,6 +3,7 @@
 
 #define worldx 15024
 #define worldy 6736
+#define rel 0.5
 
 obstacle::obstacle(std::map<double, std::vector<double>> line, double Xo, std::string type)
 {
@@ -14,22 +15,44 @@ obstacle::obstacle(std::map<double, std::vector<double>> line, double Xo, std::s
     double Yo = it->second[0];
 
     if (type == "barrel"){
-        height = 71*0.9;
+        height = 71*rel;
         QPixmap pim(":/sources/objects/barrel.png");
         setPixmap(pim);
     }
 
     else if(type == "bush1"){
-        height = 60*0.9;
+        height = 60*rel;
         QPixmap pim(":/sources/objects/bush1.png");
         setPixmap(pim);
     }
 
+    else if(type == "rock1"){
+        height = 60*rel;
+        QPixmap pim(":/sources/objects/rock1.png");
+        setPixmap(pim);
+    }
+
     else if(type == "rock3"){
-        height = 60*0.8;
+        height = 60*rel;
         QPixmap pim(":/sources/objects/rock3.png");
         setPixmap(pim);
     }
+
+    else if(type == "rock2"){
+        height = 52*rel;
+        QPixmap pim(":/sources/objects/rock2.png");
+        setPixmap(pim);
+    }
+
+    else if(type == "wood"){
+        height = 52*rel;
+        QPixmap pim(":/sources/objects/wood.png");
+        setPixmap(pim);
+    }
+
+
+
+
 
 
     setPos(it->first,Yo-height);

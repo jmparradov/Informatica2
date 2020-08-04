@@ -1,13 +1,22 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-    <file>sources/worlds/world1.png</file>
+    <file>sources/worlds/world1A.png</file>
+    <file>sources/worlds/world2.png</file>
+    <file>sources/worlds/world3.png</file>
+    <file>sources/worlds/sample1.png</file>
+    <file>sources/worlds/sample2.png</file>
     <file>sources/objects/barrel.png</file>
     <file>sources/objects/bush1.png</file>
+    <file>sources/objects/rock1.png</file>
+    <file>sources/objects/rock2.png</file>
     <file>sources/objects/rock3.png</file>
+    <file>sources/objects/wood.png</file>
     <file>sources/menus/main.png</file>
     <file>sources/menus/howto.png</file>
     <file>sources/menus/pause.jpg</file>
+    <file>sources/menus/falling.jpg</file>
     <file>sources/users/users.txt</file>
     <file>sources/users/saved.txt</file>
+    <file>sources/users/temp.txt</file>
 </qresource>
 </RCC>

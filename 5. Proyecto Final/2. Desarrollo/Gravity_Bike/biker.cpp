@@ -5,9 +5,9 @@
 #define M 80         // Peso Bicicleta kg
 #define G 9.89       // gravity m/s^2
 #define E 150        // px/m
+#define n 4
 
-
-biker::biker(std::map<double, std::vector<double>> line)
+biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QString world_s, int  players_s, QMainWindow *mainW_s)
 {
     T=1;
     width = 90;
@@ -19,6 +19,10 @@ biker::biker(std::map<double, std::vector<double>> line)
     vo = 0;
     lines = line;
     paused = false;
+    difficult = difficult_s;
+    world = world_s;
+    players = players_s;
+    mainW = mainW_s;
 
     //qDebug() << "lines" <<lines;
 
@@ -74,7 +78,6 @@ void biker::keyPressEvent(QKeyEvent *event){
 
     else if(event->key() == Qt::Key_Space){
 
-
         if (!paused){
             T = 0;
             QGraphicsTextItem *text;
@@ -85,6 +88,21 @@ void biker::keyPressEvent(QKeyEvent *event){
             text->setDefaultTextColor(Qt::black);
             QFont serifFont("Times", 40, QFont::Bold);
             text->setFont(serifFont);
+
+            QString x_qs = QString::number(x());
+            QString y_qs = QString::number(y());
+            QString v_qs = QString::number(vo);
+            QString world_qs = ("montain");
+            QString difficulty_qs = ("normal");
+
+            std::string x_s = x_qs.toUtf8().constData();
+            std::string y_s = y_qs.toUtf8().constData();
+            std::string v_s = v_qs.toUtf8().constData();
+            std::string world_s = world_qs.toUtf8().constData();
+            std::string difficulty_s = difficulty_qs.toUtf8().constData();
+
+
+            append_users_info(world_s + "," + difficulty_s + "," + v_s + "," + x_s + "," + y_s);
             paused = true;
         }
         else {
@@ -102,7 +120,13 @@ void biker::keyPressEvent(QKeyEvent *event){
 
 void biker::move(){
     bool collision = checkColliding();
-    qDebug() << "coll :" <<collision;
+    if (collision && T != 0){
+        T = 0;
+
+        game_over *ww = new game_over(difficult, world,players, mainW);
+        ww->show();
+
+    }
 
     // acceleration components
     double a = G*sin(teta*PI/180);
@@ -230,4 +254,136 @@ bool biker::checkrolling(double dx){
     }
 
     return collided;
+}
+
+void biker::append_users_info(std::string input){
+    std::string crypted = "";
+    crypted = p_encriptado(input);
+    std::ofstream outfile;
+
+    outfile.open("../Gravity_Bike/sources/users/temp.txt");
+
+    bool success = outfile.is_open();
+
+    if (success){
+        outfile << crypted + "\n";
+        outfile.close();
+    }
+}
+
+std::string biker::strToBinary(std::string s){
+    int nl = s.length();
+    std::string binary = "";
+    for (int i = 0; i < nl; i++)
+    {
+
+        int val = int(s[i]);
+        std::string bin = "";
+        int j = 0;
+        while (j < 8)
+        {
+            (val % 2)? bin.push_back('1') :
+                       bin.push_back('0');
+            val /= 2;
+            j += 1;
+        }
+        reverse(bin.begin(), bin.end());
+    binary += bin;
+    }
+    return binary;
+}
+
+std::string biker::p_encriptado(std::string text){
+
+    int l_binary = 0;
+    std::string binary = "";
+    int i = 0;
+    int j = 0;
+    int cnt_group = 0;
+    int one_count = 0;
+    int zero_count = 0;
+
+    int n_one_count = 0;
+    int n_zero_count = 0;
+    std::string crypted = "";
+
+    binary = strToBinary(text);
+    l_binary = binary.length();
+
+    while (i<l_binary){
+        while (j<n){
+            if (cnt_group == 0){
+                if (binary[i] =='0'){
+                    crypted.push_back('1');
+                    n_zero_count += 1;
+                }
+                else{
+                    n_one_count += 1;
+                    crypted.push_back('0');
+                }
+            }
+            else {
+                if(zero_count == one_count){
+                    if (binary[i] =='0'){
+                        crypted.push_back('1');
+                        n_zero_count += 1;
+                    }
+                    else{
+                        n_one_count += 1;
+                        crypted.push_back('0');
+                    }
+                }
+                else if(zero_count > one_count){
+                    if (binary[i] =='0'){
+                        if ((j+1)%2==0){
+                            crypted.push_back('1');
+                        }
+                        else{
+                            crypted.push_back('0');
+                        }
+                        n_zero_count += 1;
+                    }
+                    else{
+                        n_one_count += 1;
+                        if ((j+1)%2==0){
+                            crypted.push_back('0');
+                        }
+                        else{
+                            crypted.push_back('1');
+                        }
+                    }
+
+                }
+                else if(zero_count < one_count){
+                    if (binary[i] =='0'){
+                        if ((j+1)%3==0){
+                            crypted.push_back('1');
+                        }
+                        else {
+                            crypted.push_back('0');
+                        }
+                        n_zero_count += 1;
+                    }
+                    else{
+                        n_one_count += 1;
+                        if ((j+1)%3==0){
+                            crypted.push_back('0');
+                        }
+                        else {
+                            crypted.push_back('1');
+                        }
+                    }
+                }
+            }
+            j += 1;
+            i += 1;
+        }
+        cnt_group += 1;
+        j =0;
+        zero_count = n_zero_count;
+        n_zero_count = 0;
+        one_count = n_one_count;
+        n_one_count = 0;
+    }
+    return crypted;
 }

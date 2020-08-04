@@ -12,16 +12,21 @@
 #include <QGraphicsView>
 #include <QKeyEvent>
 #include <pause.h>
+#include <game_over.h>
+#include <QMainWindow>
 
 class biker:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
     // Methods
-    biker(std::map<double, std::vector<double>> lines);
+    biker(std::map<double, std::vector<double>> lines, QString difficult, QString world, int  players, QMainWindow *mainW);
     bool checkrolling(double dx);
     bool checkColliding();
     void keyPressEvent(QKeyEvent *event);
+    void append_users_info(std::string input);
+    std::string strToBinary(std::string s);
+    std::string p_encriptado(std::string text);
 
     // Attibutes
     int width;
@@ -29,6 +34,7 @@ public:
     double teta = 90;
     double teta_aux = 0;
     int T;
+    QMainWindow *mainW;
 
     // booleans
     bool paused;
@@ -37,6 +43,9 @@ public:
     bool Break;
     bool flying;
     std::map<double, std::vector<double>> lines;
+    QString difficult;
+    QString world;
+    int  players;
 
 public slots:
     void move();

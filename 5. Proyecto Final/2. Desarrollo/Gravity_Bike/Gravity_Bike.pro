@@ -19,6 +19,7 @@ SOURCES += \
     biker.cpp \
     createuser.cpp \
     game_options.cpp \
+    game_over.cpp \
     howto.cpp \
     login_form.cpp \
     main.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     biker.h \
     createuser.h \
     game_options.h \
+    game_over.h \
     howto.h \
     login_form.h \
     mainmenu.h \
@@ -43,6 +45,7 @@ HEADERS += \
 FORMS += \
     createuser.ui \
     game_options.ui \
+    game_over.ui \
     howto.ui \
     login_form.ui \
     mainmenu.ui \

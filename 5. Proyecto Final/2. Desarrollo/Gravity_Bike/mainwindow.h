@@ -6,7 +6,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QDebug>
-
+#include "game_over.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -18,7 +18,11 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QString difficult = "amateur", QString world = "montains", int  players = 1);
+    void append_users_info(std::string input);
+    std::string strToBinary(std::string s);
+    std::string p_encriptado(std::string text);
+
     ~MainWindow();
 
     // atributes

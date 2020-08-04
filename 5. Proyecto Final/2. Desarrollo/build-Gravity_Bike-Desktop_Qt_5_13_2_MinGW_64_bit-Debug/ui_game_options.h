@@ -41,6 +41,12 @@ public:
     QLabel *label_6;
     QPushButton *playbutton;
     QPushButton *backbutton;
+    QGroupBox *groupBox_3;
+    QRadioButton *player1;
+    QRadioButton *player2;
+    QLabel *label_7;
+    QLabel *label_8;
+    QPushButton *backbutton_2;
 
     void setupUi(QWidget *game_options)
     {
@@ -53,12 +59,15 @@ public:
         picture2 = new QWidget(groupBox);
         picture2->setObjectName(QString::fromUtf8("picture2"));
         picture2->setGeometry(QRect(190, 60, 120, 80));
+        picture2->setAutoFillBackground(true);
         picture3 = new QWidget(groupBox);
         picture3->setObjectName(QString::fromUtf8("picture3"));
         picture3->setGeometry(QRect(350, 60, 120, 80));
+        picture3->setAutoFillBackground(true);
         picture1 = new QWidget(groupBox);
         picture1->setObjectName(QString::fromUtf8("picture1"));
         picture1->setGeometry(QRect(30, 60, 120, 80));
+        picture1->setAutoFillBackground(true);
         label = new QLabel(groupBox);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(40, 30, 101, 16));
@@ -77,9 +86,18 @@ public:
         world3 = new QRadioButton(groupBox);
         world3->setObjectName(QString::fromUtf8("world3"));
         world3->setGeometry(QRect(410, 150, 16, 17));
+        label->raise();
+        label_2->raise();
+        label_3->raise();
+        world1->raise();
+        world2->raise();
+        world3->raise();
+        picture1->raise();
+        picture2->raise();
+        picture3->raise();
         groupBox_2 = new QGroupBox(game_options);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(700, 420, 501, 171));
+        groupBox_2->setGeometry(QRect(700, 410, 501, 221));
         normal = new QRadioButton(groupBox_2);
         normal->setObjectName(QString::fromUtf8("normal"));
         normal->setGeometry(QRect(250, 70, 16, 17));
@@ -100,15 +118,34 @@ public:
         label_6->setGeometry(QRect(360, 30, 101, 31));
         playbutton = new QPushButton(groupBox_2);
         playbutton->setObjectName(QString::fromUtf8("playbutton"));
-        playbutton->setGeometry(QRect(380, 120, 81, 31));
+        playbutton->setGeometry(QRect(380, 170, 81, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Roboto"));
         font.setPointSize(12);
         playbutton->setFont(font);
         backbutton = new QPushButton(groupBox_2);
         backbutton->setObjectName(QString::fromUtf8("backbutton"));
-        backbutton->setGeometry(QRect(50, 120, 81, 31));
+        backbutton->setGeometry(QRect(50, 170, 81, 31));
         backbutton->setFont(font);
+        groupBox_3 = new QGroupBox(groupBox_2);
+        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
+        groupBox_3->setGeometry(QRect(170, 120, 171, 80));
+        player1 = new QRadioButton(groupBox_3);
+        player1->setObjectName(QString::fromUtf8("player1"));
+        player1->setGeometry(QRect(20, 10, 16, 17));
+        player2 = new QRadioButton(groupBox_3);
+        player2->setObjectName(QString::fromUtf8("player2"));
+        player2->setGeometry(QRect(20, 50, 16, 17));
+        label_7 = new QLabel(groupBox_3);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(50, 10, 101, 16));
+        label_8 = new QLabel(groupBox_3);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(50, 50, 101, 21));
+        backbutton_2 = new QPushButton(game_options);
+        backbutton_2->setObjectName(QString::fromUtf8("backbutton_2"));
+        backbutton_2->setGeometry(QRect(60, 590, 151, 31));
+        backbutton_2->setFont(font);
 
         retranslateUi(game_options);
 
@@ -120,8 +157,8 @@ public:
         game_options->setWindowTitle(QCoreApplication::translate("game_options", "Form", nullptr));
         groupBox->setTitle(QString());
         label->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#550000;\">Montains</span></p></body></html>", nullptr));
-        label_2->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#550000;\">Montains</span></p></body></html>", nullptr));
-        label_3->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">Montains</span></p></body></html>", nullptr));
+        label_2->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#550000;\">Desert</span></p></body></html>", nullptr));
+        label_3->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">Acid</span></p></body></html>", nullptr));
         world1->setText(QString());
         world2->setText(QString());
         world3->setText(QString());
@@ -134,6 +171,12 @@ public:
         label_6->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#ff0000;\">Leyend</span></p></body></html>", nullptr));
         playbutton->setText(QCoreApplication::translate("game_options", "Play", nullptr));
         backbutton->setText(QCoreApplication::translate("game_options", "Back", nullptr));
+        groupBox_3->setTitle(QString());
+        player1->setText(QString());
+        player2->setText(QString());
+        label_7->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#00ffff;\">1 Player</span><span style=\" color:#00ffff;\"/></p></body></html>", nullptr));
+        label_8->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#00ffff;\">2 players</span></p></body></html>", nullptr));
+        backbutton_2->setText(QCoreApplication::translate("game_options", "Load Saved Game", nullptr));
     } // retranslateUi
 
 };

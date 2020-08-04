@@ -1,6 +1,7 @@
 release/biker.o
 release/createuser.o
 release/game_options.o
+release/game_over.o
 release/howto.o
 release/login_form.o
 release/main.o
@@ -13,6 +14,7 @@ release/qrc_Background.o
 release/moc_biker.o
 release/moc_createuser.o
 release/moc_game_options.o
+release/moc_game_over.o
 release/moc_howto.o
 release/moc_login_form.o
 release/moc_mainmenu.o

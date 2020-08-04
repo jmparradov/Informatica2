@@ -1,6 +1,7 @@
 debug/biker.o
 debug/createuser.o
 debug/game_options.o
+debug/game_over.o
 debug/howto.o
 debug/login_form.o
 debug/main.o
@@ -13,6 +14,7 @@ debug/qrc_Background.o
 debug/moc_biker.o
 debug/moc_createuser.o
 debug/moc_game_options.o
+debug/moc_game_over.o
 debug/moc_howto.o
 debug/moc_login_form.o
 debug/moc_mainmenu.o

@@ -14,25 +14,45 @@
 
 #define PI 3.14159265
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
+MainWindow::MainWindow(QString difficult, QString world, int  players):ui(new Ui::MainWindow){
     ui->setupUi(this);
     view->setScene(scene);
 
     // Insert background
-    QPixmap pim(":/sources/worlds/world1.png");
-    bool loaded = pim.load(":/sources/worlds/world1.png");
 
-    if (loaded){
-        scene->setBackgroundBrush(pim); }
-    else {
-         qDebug() << "bk image not laoded";
+    if (world == "montains"){
+        QPixmap pim(":/sources/worlds/world1A.png");
+        bool loaded = pim.load(":/sources/worlds/world1A.png");
+        if (loaded){
+            scene->setBackgroundBrush(pim);}
+        else {
+             qDebug() << "bk image not laoded";
+        }
+    }
+
+    if (world == "desert"){
+        QPixmap pim(":/sources/worlds/world2.png");
+        bool loaded = pim.load(":/sources/worlds/world2.png");
+        if (loaded){
+            scene->setBackgroundBrush(pim);}
+        else {
+             qDebug() << "bk image not laoded";
+        }
     }
 
 
-    // insert road
+    if (world == "acid"){
+        QPixmap pim(":/sources/worlds/world3.png");
+        bool loaded = pim.load(":/sources/worlds/world3.png");
+        if (loaded){
+            scene->setBackgroundBrush(pim);}
+        else {
+             qDebug() << "bk image not laoded";
+        }
+    }
+
+
+    // insert road for all worlds
     road *sect1  = new road(0,0,0,600,500,0,scenex, sceney, 1);
     road *sect2  = new road(scenex,sceney,1600,900,2600,800,3000,1500, 2);
     road *sect3  = new road(3000,1500,3300,2000,4200,2200,4600,2000, 3);
@@ -60,8 +80,13 @@ MainWindow::MainWindow(QWidget *parent)
     set_up();
 
     //Player 1
-    biker * star = new biker(lines);
-    scene->addItem(star);
+    biker * player1 = new biker(lines, difficult, world, players, this);
+    scene->addItem(player1);
+
+    if (players == 2){
+        biker * player2 = new biker(lines, difficult, world, players, this);
+        scene->addItem(player2);
+    }
 
     // insert obstacles
     obstacle *barrel1  = new obstacle(lines, 0.1, "bush1");
@@ -75,6 +100,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     obstacle *rock1  = new obstacle(lines, 0.33, "rock3");
     scene->addItem(rock1);
+
+    obstacle *rock2  = new obstacle(lines, 0.48, "rock1");
+    scene->addItem(rock2);
+
+    obstacle *rock3  = new obstacle(lines, 0.06, "rock2");
+    scene->addItem(rock3);
 
     obstacle *brush2  = new obstacle(lines, 0.4, "bush1");
     scene->addItem(brush2);
@@ -94,7 +125,16 @@ MainWindow::MainWindow(QWidget *parent)
     obstacle *brush7  = new obstacle(lines, 0.9, "bush1");
     scene->addItem(brush7);
 
+    obstacle *wood1  = new obstacle(lines, 0.12, "wood");
+    scene->addItem(wood1);
 
+    if (difficult == "normal"){
+
+    }
+
+    if (difficult == "leyend"){
+
+    }
 
     //Add View and define its characteristics
     scene->setSceneRect(0,0,worldx,worldy);
