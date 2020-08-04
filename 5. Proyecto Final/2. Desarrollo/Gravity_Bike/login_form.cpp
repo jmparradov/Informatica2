@@ -1,4 +1,4 @@
-#include "login_form.h"
+#include "mainmenu.h"
 #include "ui_login_form.h"
 #define n 4
 
@@ -19,6 +19,13 @@ login_form::~login_form()
     delete ui;
 }
 
+void login_form::on_LoginButton_2_clicked()
+{
+    this->close();
+    mainmenu *ww = new mainmenu();
+    ww->show();
+}
+
 void login_form::on_LoginButton_clicked()
 {
 
@@ -29,7 +36,9 @@ void login_form::on_LoginButton_clicked()
     std::string pass_s = password.toUtf8().constData();
 
     if (validate(user_s,pass_s)){
-        qDebug() << "success";
+        this->close();
+        game_options *ww = new game_options();
+        ww->show();
     }
     else{
         qDebug() << "failed";
@@ -212,3 +221,5 @@ std::string login_form::p_desencriptado(std::string binary){
     decrypted = BinaryTostr(crypted);
     return decrypted;
 }
+
+

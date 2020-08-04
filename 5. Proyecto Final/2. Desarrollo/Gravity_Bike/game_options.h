@@ -15,6 +15,11 @@ public:
     explicit game_options(QWidget *parent = nullptr);
     ~game_options();
 
+private slots:
+    void on_backbutton_clicked();
+
+    void on_playbutton_clicked();
+
 private:
     Ui::game_options *ui;
 };

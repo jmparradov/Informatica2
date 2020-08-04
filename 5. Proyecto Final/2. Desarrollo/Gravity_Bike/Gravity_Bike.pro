@@ -19,29 +19,35 @@ SOURCES += \
     biker.cpp \
     createuser.cpp \
     game_options.cpp \
+    howto.cpp \
     login_form.cpp \
     main.cpp \
     mainmenu.cpp \
     mainwindow.cpp \
     obstacle.cpp \
+    pause.cpp \
     road.cpp
 
 HEADERS += \
     biker.h \
     createuser.h \
     game_options.h \
+    howto.h \
     login_form.h \
     mainmenu.h \
     mainwindow.h \
     obstacle.h \
+    pause.h \
     road.h
 
 FORMS += \
     createuser.ui \
     game_options.ui \
+    howto.ui \
     login_form.ui \
     mainmenu.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    pause.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -5,18 +5,20 @@
 #define M 80         // Peso Bicicleta kg
 #define G 9.89       // gravity m/s^2
 #define E 150        // px/m
-#define T 1          // unidad de tiempo en ms
+
 
 biker::biker(std::map<double, std::vector<double>> line)
 {
-    width = 119;
-    height = 78;
+    T=1;
+    width = 90;
+    height = 59;
     Break = false;
     flying = false;
     jump = false;
     speed = false;
     vo = 0;
     lines = line;
+    paused = false;
 
     //qDebug() << "lines" <<lines;
 
@@ -67,6 +69,33 @@ void biker::keyPressEvent(QKeyEvent *event){
         else {
             teta_aux -= 5;
             setRotation(teta_aux);
+        }
+    }
+
+    else if(event->key() == Qt::Key_Space){
+
+
+        if (!paused){
+            T = 0;
+            QGraphicsTextItem *text;
+            pause *ww = new pause();
+            ww->show();
+            text = scene()->addText("Press space to continue");
+            text->setPos(x()-150, y()-100);
+            text->setDefaultTextColor(Qt::black);
+            QFont serifFont("Times", 40, QFont::Bold);
+            text->setFont(serifFont);
+            paused = true;
+        }
+        else {
+            for (QGraphicsItem *list:scene()->items()){
+                if (list->type() == 8){
+                    scene()->removeItem(list);
+                    delete list;
+                }
+            }
+            T = 1;
+            paused = false;
         }
     }
 }
@@ -174,7 +203,7 @@ bool biker::checkrolling(double dx){
             }
 
             if (speed){
-                vo += 1;
+                vo += 0.2;
                 qDebug() <<"speed up";
                 speed = false;
             }

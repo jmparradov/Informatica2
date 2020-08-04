@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QDebug>
+#include "createuser.h"
+#include "login_form.h"
+#include "howto.h"
 
 namespace Ui {
 class mainmenu;

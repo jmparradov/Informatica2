@@ -11,6 +11,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QKeyEvent>
+#include <pause.h>
 
 class biker:public QObject, public QGraphicsPixmapItem
 {
@@ -27,8 +28,10 @@ public:
     int height;
     double teta = 90;
     double teta_aux = 0;
+    int T;
 
     // booleans
+    bool paused;
     bool jump;
     bool speed;
     bool Break;

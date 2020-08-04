@@ -29,6 +29,7 @@ public:
     QLineEdit *password_input;
     QPushButton *addUserButton;
     QLabel *label_3;
+    QPushButton *cancelbutton;
 
     void setupUi(QWidget *createuser)
     {
@@ -52,10 +53,13 @@ public:
         password_input->setGeometry(QRect(190, 150, 211, 21));
         addUserButton = new QPushButton(groupBox);
         addUserButton->setObjectName(QString::fromUtf8("addUserButton"));
-        addUserButton->setGeometry(QRect(160, 200, 141, 31));
+        addUserButton->setGeometry(QRect(260, 200, 141, 31));
         label_3 = new QLabel(groupBox);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(160, 30, 131, 31));
+        cancelbutton = new QPushButton(groupBox);
+        cancelbutton->setObjectName(QString::fromUtf8("cancelbutton"));
+        cancelbutton->setGeometry(QRect(40, 200, 141, 31));
 
         retranslateUi(createuser);
 
@@ -70,6 +74,7 @@ public:
         label_2->setText(QCoreApplication::translate("createuser", "<html><head/><body><p><span style=\" font-size:12pt;\">Password</span></p></body></html>", nullptr));
         addUserButton->setText(QCoreApplication::translate("createuser", "Add User", nullptr));
         label_3->setText(QCoreApplication::translate("createuser", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">New User</span></p></body></html>", nullptr));
+        cancelbutton->setText(QCoreApplication::translate("createuser", "Cancel", nullptr));
     } // retranslateUi
 
 };

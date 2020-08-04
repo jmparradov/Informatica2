@@ -39,4 +39,7 @@ void mainmenu::on_LoginButton_clicked()
 void mainmenu::on_HowToButton_clicked()
 {
     qDebug() << "How to";
+    this->close();
+    Howto *ww = new Howto();
+    ww->show();
 }

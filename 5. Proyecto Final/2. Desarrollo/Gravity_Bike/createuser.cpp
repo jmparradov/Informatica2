@@ -1,6 +1,7 @@
-#include "createuser.h"
+#include "mainmenu.h"
 #include "ui_createuser.h"
 #define n 4
+
 createuser::createuser(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::createuser)
@@ -35,6 +36,14 @@ void createuser::on_addUserButton_clicked()
 
 }
 
+void createuser::on_cancelbutton_clicked()
+{
+    this->close();
+    mainmenu *ww = new mainmenu();
+    ww->show();
+}
+
+
 void createuser::append_users_info(std::string input){
     std::string crypted = "";
     crypted = p_encriptado(input);
@@ -42,12 +51,27 @@ void createuser::append_users_info(std::string input){
 
     outfile.open("../Gravity_Bike/sources/users/users.txt", std::ios_base::app);
     qDebug() << outfile.is_open();
-    outfile << crypted + "\n";
-    outfile.close();
-    qDebug() << "success";
 
-    QString Q_input = QString::fromStdString(input);
-    qDebug() << Q_input;
+    bool success = outfile.is_open();
+
+    if (success){
+        outfile << crypted + "\n";
+        outfile.close();
+
+        QMessageBox msgBox;
+        msgBox.setText("The user was sucessfully added.");
+        msgBox.exec();
+
+        this->close();
+        game_options *ww = new game_options();
+        ww->show();
+    }
+    else {
+        QMessageBox msgBox;
+        msgBox.setText("The user was not added, please try again");
+        msgBox.exec();
+    }
+
 }
 
 std::string createuser::strToBinary(std::string s){
@@ -166,3 +190,4 @@ std::string createuser::p_encriptado(std::string text){
     }
     return crypted;
 }
+

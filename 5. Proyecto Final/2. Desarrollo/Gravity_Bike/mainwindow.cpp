@@ -64,11 +64,37 @@ MainWindow::MainWindow(QWidget *parent)
     scene->addItem(star);
 
     // insert obstacles
-    obstacle *barrel1  = new obstacle(lines, 1500, "barrel");
+    obstacle *barrel1  = new obstacle(lines, 0.1, "bush1");
     scene->addItem(barrel1);
 
-    obstacle *barrel2  = new obstacle(lines, 1000, "barrel");
+    obstacle *barrel2  = new obstacle(lines, 0.2, "barrel");
     scene->addItem(barrel2);
+
+    obstacle *brush1  = new obstacle(lines, 0.25, "barrel");
+    scene->addItem(brush1);
+
+    obstacle *rock1  = new obstacle(lines, 0.33, "rock3");
+    scene->addItem(rock1);
+
+    obstacle *brush2  = new obstacle(lines, 0.4, "bush1");
+    scene->addItem(brush2);
+
+    obstacle *brush3  = new obstacle(lines, 0.5, "bush1");
+    scene->addItem(brush3);
+
+    obstacle *brush4  = new obstacle(lines, 0.6, "bush1");
+    scene->addItem(brush4);
+
+    obstacle *brush5  = new obstacle(lines, 0.7, "bush1");
+    scene->addItem(brush5);
+
+    obstacle *brush6  = new obstacle(lines, 0.8, "bush1");
+    scene->addItem(brush6);
+
+    obstacle *brush7  = new obstacle(lines, 0.9, "bush1");
+    scene->addItem(brush7);
+
+
 
     //Add View and define its characteristics
     scene->setSceneRect(0,0,worldx,worldy);
@@ -132,4 +158,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 

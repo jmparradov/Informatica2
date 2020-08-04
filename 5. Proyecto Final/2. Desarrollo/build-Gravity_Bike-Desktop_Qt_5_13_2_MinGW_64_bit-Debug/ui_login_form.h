@@ -29,6 +29,7 @@ public:
     QPushButton *LoginButton;
     QLineEdit *username_input;
     QLineEdit *password_input;
+    QPushButton *LoginButton_2;
 
     void setupUi(QWidget *login_form)
     {
@@ -55,13 +56,16 @@ public:
         label_3->setFont(font);
         LoginButton = new QPushButton(groupBox);
         LoginButton->setObjectName(QString::fromUtf8("LoginButton"));
-        LoginButton->setGeometry(QRect(160, 230, 121, 31));
+        LoginButton->setGeometry(QRect(220, 230, 121, 31));
         username_input = new QLineEdit(groupBox);
         username_input->setObjectName(QString::fromUtf8("username_input"));
         username_input->setGeometry(QRect(170, 110, 171, 21));
         password_input = new QLineEdit(groupBox);
         password_input->setObjectName(QString::fromUtf8("password_input"));
         password_input->setGeometry(QRect(170, 160, 171, 21));
+        LoginButton_2 = new QPushButton(groupBox);
+        LoginButton_2->setObjectName(QString::fromUtf8("LoginButton_2"));
+        LoginButton_2->setGeometry(QRect(50, 230, 121, 31));
 
         retranslateUi(login_form);
 
@@ -76,6 +80,7 @@ public:
         label_2->setText(QCoreApplication::translate("login_form", "<html><head/><body><p><span style=\" font-size:12pt;\">Username</span></p></body></html>", nullptr));
         label_3->setText(QCoreApplication::translate("login_form", "<html><head/><body><p><span style=\" font-size:12pt;\">Password</span></p></body></html>", nullptr));
         LoginButton->setText(QCoreApplication::translate("login_form", "Log in", nullptr));
+        LoginButton_2->setText(QCoreApplication::translate("login_form", "Cancel", nullptr));
     } // retranslateUi
 
 };

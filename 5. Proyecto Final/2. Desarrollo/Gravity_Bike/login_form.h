@@ -7,6 +7,7 @@
 #include <sstream>
 #include <tgmath.h>
 #include <QDebug>
+#include <game_options.h>
 
 namespace Ui {
 class login_form;
@@ -31,8 +32,12 @@ public:
 private slots:
     void on_LoginButton_clicked();
 
+    void on_LoginButton_2_clicked();
+
 private:
     Ui::login_form *ui;
 };
 
 #endif // LOGIN_FORM_H
+
+

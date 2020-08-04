@@ -6,6 +6,8 @@
 #include <QString>
 #include <fstream>
 #include <QFile>
+#include <QMessageBox>
+#include <game_options.h>
 
 namespace Ui {
 class createuser;
@@ -24,6 +26,8 @@ public:
 
 private slots:
     void on_addUserButton_clicked();
+
+    void on_cancelbutton_clicked();
 
 private:
     Ui::createuser *ui;

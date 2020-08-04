@@ -2,7 +2,12 @@
 <qresource>
     <file>sources/worlds/world1.png</file>
     <file>sources/objects/barrel.png</file>
+    <file>sources/objects/bush1.png</file>
+    <file>sources/objects/rock3.png</file>
     <file>sources/menus/main.png</file>
+    <file>sources/menus/howto.png</file>
+    <file>sources/menus/pause.jpg</file>
     <file>sources/users/users.txt</file>
+    <file>sources/users/saved.txt</file>
 </qresource>
 </RCC>
