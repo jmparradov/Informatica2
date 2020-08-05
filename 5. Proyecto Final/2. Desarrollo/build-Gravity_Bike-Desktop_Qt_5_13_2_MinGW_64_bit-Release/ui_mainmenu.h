@@ -35,18 +35,18 @@ public:
         groupBox->setGeometry(QRect(750, 250, 301, 211));
         CreateUserButton = new QPushButton(groupBox);
         CreateUserButton->setObjectName(QString::fromUtf8("CreateUserButton"));
-        CreateUserButton->setGeometry(QRect(80, 30, 141, 31));
+        CreateUserButton->setGeometry(QRect(60, 30, 171, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Roboto"));
         font.setPointSize(12);
         CreateUserButton->setFont(font);
         LoginButton = new QPushButton(groupBox);
         LoginButton->setObjectName(QString::fromUtf8("LoginButton"));
-        LoginButton->setGeometry(QRect(80, 90, 141, 31));
+        LoginButton->setGeometry(QRect(60, 90, 171, 31));
         LoginButton->setFont(font);
         HowToButton = new QPushButton(groupBox);
         HowToButton->setObjectName(QString::fromUtf8("HowToButton"));
-        HowToButton->setGeometry(QRect(80, 150, 141, 31));
+        HowToButton->setGeometry(QRect(60, 150, 171, 31));
         HowToButton->setFont(font);
         HowToButton->setCursor(QCursor(Qt::ArrowCursor));
 

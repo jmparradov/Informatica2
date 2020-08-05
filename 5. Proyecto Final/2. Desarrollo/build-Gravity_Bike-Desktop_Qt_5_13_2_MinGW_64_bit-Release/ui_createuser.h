@@ -44,10 +44,10 @@ public:
         username_input->setGeometry(QRect(190, 90, 211, 21));
         label = new QLabel(groupBox);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(46, 90, 131, 21));
+        label->setGeometry(QRect(50, 90, 141, 31));
         label_2 = new QLabel(groupBox);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(50, 150, 91, 21));
+        label_2->setGeometry(QRect(50, 150, 121, 31));
         password_input = new QLineEdit(groupBox);
         password_input->setObjectName(QString::fromUtf8("password_input"));
         password_input->setGeometry(QRect(190, 150, 211, 21));
@@ -56,7 +56,7 @@ public:
         addUserButton->setGeometry(QRect(260, 200, 141, 31));
         label_3 = new QLabel(groupBox);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(160, 30, 131, 31));
+        label_3->setGeometry(QRect(160, 30, 151, 41));
         cancelbutton = new QPushButton(groupBox);
         cancelbutton->setObjectName(QString::fromUtf8("cancelbutton"));
         cancelbutton->setGeometry(QRect(40, 200, 141, 31));
@@ -70,7 +70,7 @@ public:
     {
         createuser->setWindowTitle(QCoreApplication::translate("createuser", "Form", nullptr));
         groupBox->setTitle(QString());
-        label->setText(QCoreApplication::translate("createuser", "<html><head/><body><p><span style=\" font-size:12pt;\">User Name</span></p></body></html>", nullptr));
+        label->setText(QCoreApplication::translate("createuser", "<html><head/><body><p><span style=\" font-size:12pt;\">Username</span></p></body></html>", nullptr));
         label_2->setText(QCoreApplication::translate("createuser", "<html><head/><body><p><span style=\" font-size:12pt;\">Password</span></p></body></html>", nullptr));
         addUserButton->setText(QCoreApplication::translate("createuser", "Add User", nullptr));
         label_3->setText(QCoreApplication::translate("createuser", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">New User</span></p></body></html>", nullptr));

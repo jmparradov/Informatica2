@@ -28,7 +28,7 @@ public:
         Howto->resize(1214, 659);
         backbutton = new QPushButton(Howto);
         backbutton->setObjectName(QString::fromUtf8("backbutton"));
-        backbutton->setGeometry(QRect(1030, 590, 131, 31));
+        backbutton->setGeometry(QRect(1020, 590, 141, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Roboto"));
         font.setPointSize(12);

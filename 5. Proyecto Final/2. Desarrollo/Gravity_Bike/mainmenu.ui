@@ -28,9 +28,9 @@
    <widget class="QPushButton" name="CreateUserButton">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>60</x>
       <y>30</y>
-      <width>141</width>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
@@ -47,9 +47,9 @@
    <widget class="QPushButton" name="LoginButton">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>60</x>
       <y>90</y>
-      <width>141</width>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
@@ -66,9 +66,9 @@
    <widget class="QPushButton" name="HowToButton">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>60</x>
       <y>150</y>
-      <width>141</width>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
