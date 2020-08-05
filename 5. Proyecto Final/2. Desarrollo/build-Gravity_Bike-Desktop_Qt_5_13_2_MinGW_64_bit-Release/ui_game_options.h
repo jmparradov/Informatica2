@@ -144,7 +144,7 @@ public:
         label_8->setGeometry(QRect(50, 30, 101, 41));
         backbutton_2 = new QPushButton(game_options);
         backbutton_2->setObjectName(QString::fromUtf8("backbutton_2"));
-        backbutton_2->setGeometry(QRect(60, 590, 151, 31));
+        backbutton_2->setGeometry(QRect(60, 590, 221, 31));
         backbutton_2->setFont(font);
 
         retranslateUi(game_options);
@@ -167,8 +167,8 @@ public:
         amateur->setText(QString());
         leyend->setText(QString());
         label_4->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#00ff00;\">Amateur</span></p></body></html>", nullptr));
-        label_5->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#ffff00;\">Normal</span></p></body></html>", nullptr));
-        label_6->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#ff0000;\">Leyend</span></p></body></html>", nullptr));
+        label_5->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#0000ff;\">Normal</span></p></body></html>", nullptr));
+        label_6->setText(QCoreApplication::translate("game_options", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#6507a8;\">Leyend</span></p></body></html>", nullptr));
         playbutton->setText(QCoreApplication::translate("game_options", "Play", nullptr));
         backbutton->setText(QCoreApplication::translate("game_options", "Back", nullptr));
         groupBox_3->setTitle(QString());

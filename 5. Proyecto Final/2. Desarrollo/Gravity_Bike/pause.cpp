@@ -24,9 +24,6 @@ pause::~pause()
 void pause::on_continuebutton_clicked()
 {
     this->close();
-    game_options *ww = new game_options();
-    ww->show();
-
 }
 
 void pause::on_savebutton_clicked()
@@ -57,6 +54,8 @@ void pause::on_loadbutton_clicked()
 void pause::on_exitbutton_clicked()
 {
     mainW->close();
+    game_options *ww = new game_options();
+    ww->show();
 }
 
 std::string pause:: get_gamesinfo(){

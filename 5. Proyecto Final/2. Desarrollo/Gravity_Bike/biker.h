@@ -20,7 +20,7 @@ class biker:public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     // Methods
-    biker(std::map<double, std::vector<double>> lines, QString difficult, QString world, int  players, QMainWindow *mainW);
+    biker(std::map<double, std::vector<double>> lines, QString difficult, QString world, int  players, QMainWindow *mainW, int n_player);
     bool checkrolling(double dx);
     bool checkColliding();
     void keyPressEvent(QKeyEvent *event);
@@ -33,6 +33,7 @@ public:
     int height;
     double teta = 90;
     double teta_aux = 0;
+    int n_player;
 
     QMainWindow *mainW;
 

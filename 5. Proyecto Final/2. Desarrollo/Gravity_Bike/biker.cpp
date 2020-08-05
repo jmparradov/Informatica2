@@ -8,7 +8,7 @@
 #define n 4
 #define T 1
 
-biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QString world_s, int  players_s, QMainWindow *mainW_s)
+biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QString world_s, int  players_s, QMainWindow *mainW_s, int n_player_s)
 {
 
     width = 90;
@@ -24,6 +24,7 @@ biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QS
     world = world_s;
     players = players_s;
     mainW = mainW_s;
+    n_player = n_player_s;
 
     //qDebug() << "lines" <<lines;
 
@@ -47,34 +48,67 @@ biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QS
 }
 
 void biker::keyPressEvent(QKeyEvent *event){
+    if (n_player ==1){
+        if (event->key() == Qt::Key_W){
+            // Up action - jump
+            if(!flying){
+                jump = true;
+            }
+        }
 
-    if (event->key() == Qt::Key_W){
-        // Up action - jump
-        if(!flying){
-            jump = true;
+        else if (event->key() == Qt::Key_D){
+            // Right action - speed up
+            if(!flying){
+                speed = true;
+            }
+            else {
+                teta_aux += 5;
+                setRotation(teta_aux);
+            }
+        }
+
+        else if (event->key() == Qt::Key_A){
+            // Left Action - Break
+            if(!flying){
+                Break = true;
+            }
+            else {
+                teta_aux -= 5;
+                setRotation(teta_aux);
+            }
         }
     }
 
-    else if (event->key() == Qt::Key_D){
-        // Right action - speed up
-        if(!flying){
-            speed = true;
+    else if (n_player ==2){
+        if (event->key() == Qt::Key_I){
+            // Up action - jump
+            if(!flying){
+                jump = true;
+            }
         }
-        else {
-            teta_aux += 5;
-            setRotation(teta_aux);
-        }
-    }
 
-    else if (event->key() == Qt::Key_A){
-        // Left Action - Break
-        if(!flying){
-            Break = true;
+        else if (event->key() == Qt::Key_L){
+            // Right action - speed up
+            if(!flying){
+                speed = true;
+            }
+            else {
+                teta_aux += 5;
+                setRotation(teta_aux);
+            }
         }
-        else {
-            teta_aux -= 5;
-            setRotation(teta_aux);
+
+        else if (event->key() == Qt::Key_J){
+            // Left Action - Break
+            if(!flying){
+                Break = true;
+            }
+            else {
+                teta_aux -= 5;
+                setRotation(teta_aux);
+            }
         }
+
     }
 
     else if(event->key() == Qt::Key_Space){
@@ -144,8 +178,11 @@ void biker::move(){
 
 
     setPos(x()+dx,y()+dy);
-    QList<QGraphicsView *> views = scene()->views();
-    views.at(0)->centerOn(this);    
+
+    if (n_player ==1){
+        QList<QGraphicsView *> views = scene()->views();
+        views.at(0)->centerOn(this);
+    }
 
     bool coll = checkrolling(dx);
     //qDebug() << "coll :" <<coll;
@@ -248,8 +285,10 @@ bool biker::checkrolling(double dx){
             return false;
         }
 
-        QList<QGraphicsView *> views = scene()->views();
-        views.at(0)->centerOn(this);
+        if (n_player ==1){
+            QList<QGraphicsView *> views = scene()->views();
+            views.at(0)->centerOn(this);
+        }
         return true;
 
     }

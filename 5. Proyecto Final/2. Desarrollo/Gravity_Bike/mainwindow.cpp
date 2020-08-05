@@ -80,11 +80,11 @@ MainWindow::MainWindow(QString difficult, QString world, int  players):ui(new Ui
     set_up();
 
     //Player 1
-    biker * player1 = new biker(lines, difficult, world, players, this);
+    biker * player1 = new biker(lines, difficult, world, players, this, 1);
     scene->addItem(player1);
 
     if (players == 2){
-        biker * player2 = new biker(lines, difficult, world, players, this);
+        biker * player2 = new biker(lines, difficult, world, players, this, 2);
         scene->addItem(player2);
     }
 

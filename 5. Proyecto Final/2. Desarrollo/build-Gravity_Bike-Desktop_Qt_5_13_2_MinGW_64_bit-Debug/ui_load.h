@@ -36,10 +36,10 @@ public:
         SavedList->setGeometry(QRect(510, 190, 361, 231));
         label = new QLabel(load);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(510, 160, 101, 21));
+        label->setGeometry(QRect(510, 150, 111, 31));
         pushButton = new QPushButton(load);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(764, 440, 91, 31));
+        pushButton->setGeometry(QRect(770, 470, 101, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Roboto"));
         font.setPointSize(12);
@@ -48,7 +48,7 @@ public:
         pushButton->setFont(font);
         backbutton = new QPushButton(load);
         backbutton->setObjectName(QString::fromUtf8("backbutton"));
-        backbutton->setGeometry(QRect(30, 470, 91, 31));
+        backbutton->setGeometry(QRect(30, 470, 101, 31));
         backbutton->setFont(font);
 
         retranslateUi(load);

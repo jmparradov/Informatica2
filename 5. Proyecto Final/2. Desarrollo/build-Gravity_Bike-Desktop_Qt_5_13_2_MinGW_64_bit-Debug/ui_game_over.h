@@ -30,7 +30,7 @@ public:
         game_over->resize(565, 340);
         restartbutton = new QPushButton(game_over);
         restartbutton->setObjectName(QString::fromUtf8("restartbutton"));
-        restartbutton->setGeometry(QRect(230, 80, 91, 31));
+        restartbutton->setGeometry(QRect(210, 80, 121, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Roboto"));
         font.setPointSize(12);
@@ -39,11 +39,11 @@ public:
         restartbutton->setFont(font);
         loadbutton = new QPushButton(game_over);
         loadbutton->setObjectName(QString::fromUtf8("loadbutton"));
-        loadbutton->setGeometry(QRect(230, 150, 91, 31));
+        loadbutton->setGeometry(QRect(210, 150, 121, 31));
         loadbutton->setFont(font);
         menubutton = new QPushButton(game_over);
         menubutton->setObjectName(QString::fromUtf8("menubutton"));
-        menubutton->setGeometry(QRect(230, 220, 91, 31));
+        menubutton->setGeometry(QRect(210, 220, 121, 31));
         menubutton->setFont(font);
 
         retranslateUi(game_over);
