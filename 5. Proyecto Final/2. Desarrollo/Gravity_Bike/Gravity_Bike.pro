@@ -28,7 +28,8 @@ SOURCES += \
     mainwindow.cpp \
     obstacle.cpp \
     pause.cpp \
-    road.cpp
+    road.cpp \
+    win.cpp
 
 HEADERS += \
     biker.h \
@@ -42,7 +43,8 @@ HEADERS += \
     mainwindow.h \
     obstacle.h \
     pause.h \
-    road.h
+    road.h \
+    win.h
 
 FORMS += \
     createuser.ui \
@@ -53,7 +55,8 @@ FORMS += \
     login_form.ui \
     mainmenu.ui \
     mainwindow.ui \
-    pause.ui
+    pause.ui \
+    win.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -8,6 +8,7 @@
 #include <QDebug>
 #include "game_over.h"
 #include "load.h"
+#include "win.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -19,7 +20,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QString difficult = "amateur", QString world = "montains", int  players = 1);
+    MainWindow(QString difficult = "amateur", QString world = "montains", int  players = 1, double x1 = 0, double y1 = 0,
+               double x2 = 0, double y2=0, double v01=0, double v02 = 0);
     void append_users_info(std::string input);
     std::string strToBinary(std::string s);
     std::string p_encriptado(std::string text);

@@ -13,7 +13,8 @@ login_form::login_form(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 
-
+    QRect geo = this->geometry();
+    this->setFixedSize(geo.width(),geo.height());
 }
 
 login_form::~login_form()

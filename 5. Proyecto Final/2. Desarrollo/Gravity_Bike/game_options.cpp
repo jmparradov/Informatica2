@@ -14,6 +14,9 @@ game_options::game_options(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 
+    QRect geo = this->geometry();
+    this->setFixedSize(geo.width(),geo.height());
+
     QPixmap sample1(":/sources/worlds/sample1.png");
     sample1 = sample1.scaled(ui->picture1->size(), Qt::IgnoreAspectRatio);
     QPalette palette_s1;

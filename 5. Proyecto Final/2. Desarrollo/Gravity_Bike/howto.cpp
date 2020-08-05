@@ -11,6 +11,9 @@ Howto::Howto(QWidget *parent) :
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
+
+    QRect geo = this->geometry();
+    this->setFixedSize(geo.width(),geo.height());
 }
 
 Howto::~Howto()

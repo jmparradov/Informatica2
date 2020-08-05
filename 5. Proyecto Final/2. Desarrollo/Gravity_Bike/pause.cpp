@@ -13,6 +13,10 @@ pause::pause(QMainWindow *mainW_s) : ui(new Ui::pause)
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
+
+    QRect geo = this->geometry();
+    this->setFixedSize(geo.width(),geo.height());
+
     mainW = mainW_s;
 }
 

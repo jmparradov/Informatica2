@@ -14,13 +14,15 @@
 #include <pause.h>
 #include <game_over.h>
 #include <QMainWindow>
+#include "win.h"
 
 class biker:public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
     // Methods
-    biker(std::map<double, std::vector<double>> lines, QString difficult, QString world, int  players, QMainWindow *mainW, int n_player);
+    biker(std::map<double, std::vector<double>> lines, QString difficult, QString world, int  players, QMainWindow *mainW, int n_player,
+          double x0 = 0, double y0 = 0, double v0_s = 0);
     bool checkrolling(double dx);
     bool checkColliding();
     void keyPressEvent(QKeyEvent *event);

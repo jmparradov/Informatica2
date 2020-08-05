@@ -8,7 +8,11 @@
 #define n 4
 #define T 1
 
-biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QString world_s, int  players_s, QMainWindow *mainW_s, int n_player_s)
+#define worldx 15024
+#define worldy 6736
+
+biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QString world_s, int  players_s, QMainWindow *mainW_s, int n_player_s,
+             double x0, double y0, double v0_s)
 {
 
     width = 90;
@@ -17,7 +21,7 @@ biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QS
     flying = false;
     jump = false;
     speed = false;
-    vo = 0;
+    vo = v0_s;
     lines = line;
     paused = false;
     difficult = difficult_s;
@@ -32,10 +36,7 @@ biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QS
     QPixmap pim(":/sources/character/c1.png");
     setPixmap(pim);
     setTransformOriginPoint(width/2,height/2);
-    setPos(0,0);
-
-    qDebug() << "x :" <<x();
-    qDebug() << "y :" <<y();
+    setPos(x0,y0);
 
     //make item  focusable
     setFlag(QGraphicsItem::ItemIsFocusable);
@@ -79,7 +80,7 @@ void biker::keyPressEvent(QKeyEvent *event){
         }
     }
 
-    else if (n_player ==2){
+    else if (n_player == 2){
         if (event->key() == Qt::Key_I){
             // Up action - jump
             if(!flying){
@@ -111,7 +112,7 @@ void biker::keyPressEvent(QKeyEvent *event){
 
     }
 
-    else if(event->key() == Qt::Key_Space){
+    if(event->key() == Qt::Key_Space){
 
         if (!paused){
             timer->stop();
@@ -178,6 +179,19 @@ void biker::move(){
 
 
     setPos(x()+dx,y()+dy);
+
+    // check if player reached the end
+    if(x()>= worldx){
+        timer->stop();
+        win *ww = new win(mainW, n_player, difficult, world,players);
+        ww->show();
+    }
+
+    if(y()>= worldy){
+        timer->stop();
+        game_over *ww = new game_over(difficult, world,players, mainW);
+        ww->show();
+    }
 
     if (n_player ==1){
         QList<QGraphicsView *> views = scene()->views();

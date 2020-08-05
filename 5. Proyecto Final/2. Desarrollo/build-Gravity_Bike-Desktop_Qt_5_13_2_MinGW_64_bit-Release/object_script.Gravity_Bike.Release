@@ -11,6 +11,7 @@ release/mainwindow.o
 release/obstacle.o
 release/pause.o
 release/road.o
+release/win.o
 release/qrc_Background.o
 release/moc_biker.o
 release/moc_createuser.o
@@ -23,3 +24,4 @@ release/moc_mainmenu.o
 release/moc_mainwindow.o
 release/moc_obstacle.o
 release/moc_pause.o
+release/moc_win.o

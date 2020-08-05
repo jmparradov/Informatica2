@@ -11,6 +11,7 @@ debug/mainwindow.o
 debug/obstacle.o
 debug/pause.o
 debug/road.o
+debug/win.o
 debug/qrc_Background.o
 debug/moc_biker.o
 debug/moc_createuser.o
@@ -23,3 +24,4 @@ debug/moc_mainmenu.o
 debug/moc_mainwindow.o
 debug/moc_obstacle.o
 debug/moc_pause.o
+debug/moc_win.o

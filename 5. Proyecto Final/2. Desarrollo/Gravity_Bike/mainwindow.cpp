@@ -14,7 +14,8 @@
 
 #define PI 3.14159265
 
-MainWindow::MainWindow(QString difficult, QString world, int  players):ui(new Ui::MainWindow){
+MainWindow::MainWindow(QString difficult, QString world, int  players, double x1, double y1,
+                       double x2, double y2, double v01, double v02):ui(new Ui::MainWindow){
     ui->setupUi(this);
     view->setScene(scene);
 
@@ -80,11 +81,11 @@ MainWindow::MainWindow(QString difficult, QString world, int  players):ui(new Ui
     set_up();
 
     //Player 1
-    biker * player1 = new biker(lines, difficult, world, players, this, 1);
+    biker * player1 = new biker(lines, difficult, world, players, this, 1,x1,y1,v01);
     scene->addItem(player1);
 
     if (players == 2){
-        biker * player2 = new biker(lines, difficult, world, players, this, 2);
+        biker * player2 = new biker(lines, difficult, world, players, this, 2,x2,y2,v02);
         scene->addItem(player2);
     }
 
@@ -197,7 +198,7 @@ MainWindow::MainWindow(QString difficult, QString world, int  players):ui(new Ui
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->resize(scenex,sceney);
     this->resize(scenex,sceney);
-    //view->setFixedSize(scenex,sceney);
+    view->setFixedSize(scenex,sceney);
     view->show();
 
 }

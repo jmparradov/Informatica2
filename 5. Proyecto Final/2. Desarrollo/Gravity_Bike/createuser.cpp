@@ -12,6 +12,10 @@ createuser::createuser(QWidget *parent) :
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
+
+    QRect geo = this->geometry();
+    this->setFixedSize(geo.width(),geo.height());
+
 }
 
 createuser::~createuser()

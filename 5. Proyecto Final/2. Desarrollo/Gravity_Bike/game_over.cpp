@@ -11,6 +11,9 @@ game_over::game_over(QString difficult_i, QString world_i, int  players_i, QMain
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 
+    QRect geo = this->geometry();
+    this->setFixedSize(geo.width(),geo.height());
+
     difficult = difficult_i;
     world = world_i;
     players = players_i;
@@ -24,21 +27,21 @@ game_over::~game_over()
 
 void game_over::on_restartbutton_clicked()
 {
-    qDebug() << "1";
+
     this->close();
-    qDebug() << "2";
     mainW->close();
-    qDebug() << "3";
 
     MainWindow *ww = new MainWindow(difficult, world,players);
-    qDebug() << "4";
     ww->show();
-    qDebug() << "5";
 }
 
 void game_over::on_loadbutton_clicked()
 {
+    this->close();
+    mainW->close();
 
+    load *ww = new load();
+    ww->show();
 }
 
 void game_over::on_menubutton_clicked()

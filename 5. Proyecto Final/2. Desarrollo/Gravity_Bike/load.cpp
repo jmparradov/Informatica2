@@ -14,6 +14,8 @@ load::load(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 
+    QRect geo = this->geometry();
+    this->setFixedSize(geo.width(),geo.height());
 
     saved_games = get_userinfo();
     std::vector<std::string>::iterator it = saved_games.begin();
@@ -47,31 +49,40 @@ std::vector <std::string> load::split_text(std::string value){
 
 void load::on_pushButton_clicked()
 {
-    QList<QListWidgetItem*> list = ui->SavedList->selectedItems();
-    qDebug() << "Trying 0";
-    for(int i = 0; i < list.count(); ++i)
-    {
-        qDebug() << "Trying 1";
-        std::string item = saved_games[i];
-        std::vector <std::string> loaded  = split_text(item);
-        // name + world_s + "," + difficulty_s + "," + v_s + "," + x_s + "," + y_s +
+    QListWidgetItem *list = ui->SavedList->currentItem();
+    int row = ui->SavedList->currentRow();
+    qDebug() << list->text();
+
+    std::string item = saved_games[row];
+
+    QString item_q = QString::fromStdString(item);
+    qDebug()<<item_q;
+
+    std::vector <std::string> loaded  = split_text(item);
+    // name + world_s + "," + difficulty_s + "," + v_s + "," + x_s + "," + y_s +
 
 
-        std::string difficult_s = loaded[2];
-        QString difficult = QString::fromStdString(difficult_s);
+    std::string difficult_s = loaded[2];
+    QString difficult = QString::fromStdString(difficult_s);
 
-        std::string world_s = loaded[1];
-        QString world = QString::fromStdString(world_s);
-        QString loaded_1 = QString::fromStdString(loaded[1]);
-        qDebug() <<"World:" <<world;
+    std::string world_s = loaded[1];
+    QString world = QString::fromStdString(world_s);
 
-        //int  players = std::stoi(loaded[1]);
+    QString xs = QString::fromStdString(loaded[4]);
+    double x1 = xs.toDouble();
+    qDebug() << "x :" <<x1;
+    QString ys = QString::fromStdString(loaded[5]);
+    double y1 = ys.toDouble();
+    qDebug() << "y :" <<y1;
+    QString v1s = QString::fromStdString(loaded[3]);
+    double v1 = v1s.toDouble();
+    qDebug() << "v :" <<v1;
 
-        MainWindow *ww = new MainWindow(difficult, world,1);
-        ww->show();
-        this->close();
-        break;
-    }
+    //loading game information
+    MainWindow *ww = new MainWindow(difficult, world,1,x1,y1,0,0,v1);
+    ww->show();
+    this->close();
+
 
 }
 
