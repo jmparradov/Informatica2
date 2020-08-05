@@ -7,6 +7,7 @@
 #define E 150        // px/m
 #define n 4
 #define T 1
+#define C 0.05
 
 #define worldx 15024
 #define worldy 6736
@@ -165,7 +166,7 @@ void biker::move(){
     }
 
     // acceleration components
-    double a = G*sin(teta*PI/180);
+    double a = G*sin(teta*PI/180)-C*pow(vo,2);
 
     double tp = (1e-3)*T;
     double yp = (vo*tp)+(0.5*a*tp*tp);

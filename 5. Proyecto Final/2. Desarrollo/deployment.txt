@@ -1,0 +1,2 @@
+windeployqt.exe
+windeployqt.exe --quick --no-translations .
