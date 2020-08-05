@@ -16,8 +16,5 @@
     <file>sources/menus/howto.png</file>
     <file>sources/menus/pause.jpg</file>
     <file>sources/menus/falling.jpg</file>
-    <file>sources/users/users.txt</file>
-    <file>sources/users/saved.txt</file>
-    <file>sources/users/temp.txt</file>
 </qresource>
 </RCC>

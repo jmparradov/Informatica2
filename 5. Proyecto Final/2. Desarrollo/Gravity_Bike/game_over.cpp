@@ -24,11 +24,16 @@ game_over::~game_over()
 
 void game_over::on_restartbutton_clicked()
 {
+    qDebug() << "1";
     this->close();
+    qDebug() << "2";
     mainW->close();
+    qDebug() << "3";
 
     MainWindow *ww = new MainWindow(difficult, world,players);
+    qDebug() << "4";
     ww->show();
+    qDebug() << "5";
 }
 
 void game_over::on_loadbutton_clicked()

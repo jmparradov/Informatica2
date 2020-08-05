@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QMainWindow>
+#include <QDebug>
 
 namespace Ui {
 class game_over;

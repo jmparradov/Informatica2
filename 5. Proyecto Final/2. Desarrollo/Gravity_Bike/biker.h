@@ -33,7 +33,7 @@ public:
     int height;
     double teta = 90;
     double teta_aux = 0;
-    int T;
+
     QMainWindow *mainW;
 
     // booleans
@@ -46,6 +46,7 @@ public:
     QString difficult;
     QString world;
     int  players;
+    QTimer *timer = new QTimer();
 
 public slots:
     void move();

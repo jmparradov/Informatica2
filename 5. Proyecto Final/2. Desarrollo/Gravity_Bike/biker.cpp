@@ -6,10 +6,11 @@
 #define G 9.89       // gravity m/s^2
 #define E 150        // px/m
 #define n 4
+#define T 2
 
 biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QString world_s, int  players_s, QMainWindow *mainW_s)
 {
-    T=1;
+
     width = 90;
     height = 59;
     Break = false;
@@ -40,7 +41,7 @@ biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QS
     setFocus();
 
     //connect
-    QTimer *timer = new QTimer();
+
     connect(timer,SIGNAL(timeout()),this, SLOT(move()));
     timer->start(T);
 }
@@ -79,7 +80,8 @@ void biker::keyPressEvent(QKeyEvent *event){
     else if(event->key() == Qt::Key_Space){
 
         if (!paused){
-            T = 0;
+            timer->stop();
+
             QGraphicsTextItem *text;
             pause *ww = new pause(mainW);
             ww->show();
@@ -111,7 +113,8 @@ void biker::keyPressEvent(QKeyEvent *event){
                     delete list;
                 }
             }
-            T = 1;
+
+            timer->start(T);
             paused = false;
         }
     }
@@ -120,9 +123,9 @@ void biker::keyPressEvent(QKeyEvent *event){
 void biker::move(){
     bool collision = checkColliding();
     if (collision && T != 0){
-        T = 0;
-        game_over *ww = new game_over(difficult, world,players, mainW);
-        ww->show();
+        //timer->stop();
+        //game_over *ww = new game_over(difficult, world,players, mainW);
+        //ww->show();
 
     }
 
@@ -172,7 +175,7 @@ bool biker::checkColliding(){
     bool collided = false;
     for(QGraphicsItem* item: collidingItems()) {
         if (item->type() == 7){
-            qDebug() <<item->type();
+            //qDebug() <<item->type();
             collided = true;
         }
     }
