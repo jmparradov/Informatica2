@@ -2,6 +2,7 @@
 #include "mainmenu.h"
 #include "createuser.h"
 #include <QApplication>
+#include <QMediaPlayer>
 
 int main(int argc, char *argv[])
 {

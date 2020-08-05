@@ -81,35 +81,41 @@ MainWindow::MainWindow(QString difficult, QString world, int  players, double x1
     set_up();
 
     //Player 1
-    biker * player1 = new biker(lines, difficult, world, players, this, 1,x1,y1,v01);
-    scene->addItem(player1);
+    if (players == 1){
+        biker * player1 = new biker(lines, difficult, world, players, this, 1,x1,y1,v01);
+        scene->addItem(player1);
+    }
 
     if (players == 2){
         biker * player2 = new biker(lines, difficult, world, players, this, 2,x2,y2,v02);
         scene->addItem(player2);
+
+        biker * player1 = new biker(lines, difficult, world, players, this, 1,x1,y1,v01);
+        scene->addItem(player1);
     }
 
     // insert obstacles
+
+    obstacle *rock3  = new obstacle(lines, 0.06, "rock2");
+    scene->addItem(rock3);
+
     obstacle *barrel1  = new obstacle(lines, 0.1, "bush1");
     scene->addItem(barrel1);
 
     obstacle *barrel2  = new obstacle(lines, 0.2, "barrel");
     scene->addItem(barrel2);
 
-    obstacle *brush1  = new obstacle(lines, 0.25, "barrel");
+    obstacle *brush1  = new obstacle(lines, 0.26, "barrel");
     scene->addItem(brush1);
 
-    obstacle *rock1  = new obstacle(lines, 0.33, "rock3");
+    obstacle *rock1  = new obstacle(lines, 0.36, "rock3");
     scene->addItem(rock1);
-
-    obstacle *rock2  = new obstacle(lines, 0.48, "rock1");
-    scene->addItem(rock2);
-
-    obstacle *rock3  = new obstacle(lines, 0.06, "rock2");
-    scene->addItem(rock3);
 
     obstacle *brush2  = new obstacle(lines, 0.4, "bush1");
     scene->addItem(brush2);
+
+    obstacle *rock2  = new obstacle(lines, 0.43, "rock1");
+    scene->addItem(rock2);
 
     obstacle *brush3  = new obstacle(lines, 0.5, "bush1");
     scene->addItem(brush3);
@@ -126,8 +132,7 @@ MainWindow::MainWindow(QString difficult, QString world, int  players, double x1
     obstacle *brush7  = new obstacle(lines, 0.9, "bush1");
     scene->addItem(brush7);
 
-    obstacle *wood1  = new obstacle(lines, 0.12, "wood");
-    scene->addItem(wood1);
+
 
     if (difficult == "normal"){
 
@@ -137,10 +142,10 @@ MainWindow::MainWindow(QString difficult, QString world, int  players, double x1
         obstacle *brush1  = new obstacle(lines, 0.3, "barrel");
         scene->addItem(brush1);
 
-        obstacle *rock1  = new obstacle(lines, 0.35, "rock3");
+        obstacle *rock1  = new obstacle(lines, 0.42, "rock3");
         scene->addItem(rock1);
 
-        obstacle *rock2  = new obstacle(lines, 0.6, "rock1");
+        obstacle *rock2  = new obstacle(lines, 0.58, "rock1");
         scene->addItem(rock2);
 
         obstacle *rock3  = new obstacle(lines, 0.06, "rock2");
@@ -158,8 +163,6 @@ MainWindow::MainWindow(QString difficult, QString world, int  players, double x1
         obstacle *brush6  = new obstacle(lines, 0.95, "bush1");
         scene->addItem(brush6);
 
-        obstacle *brush7  = new obstacle(lines, 0.94, "bush1");
-        scene->addItem(brush7);
 
     }
 

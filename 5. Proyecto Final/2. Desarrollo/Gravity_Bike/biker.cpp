@@ -7,7 +7,7 @@
 #define E 150        // px/m
 #define n 4
 #define T 1
-#define C 0.05
+#define C 0.03
 
 #define worldx 15024
 #define worldy 6736
@@ -158,10 +158,10 @@ void biker::keyPressEvent(QKeyEvent *event){
 
 void biker::move(){
     bool collision = checkColliding();
-    if (collision && T != 0){
-        //timer->stop();
-        //game_over *ww = new game_over(difficult, world,players, mainW);
-        //ww->show();
+    if (collision && T != 0 && players == 1){
+        timer->stop();
+        game_over *ww = new game_over(difficult, world,players, mainW);
+        ww->show();
 
     }
 
@@ -217,7 +217,7 @@ void biker::move(){
     else{
 
         if (teta<90){
-            teta += 500*tp;
+            teta += 300*tp;
         }
     }
 

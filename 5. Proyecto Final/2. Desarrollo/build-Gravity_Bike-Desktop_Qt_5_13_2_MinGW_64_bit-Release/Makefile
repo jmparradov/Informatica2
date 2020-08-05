@@ -251,7 +251,9 @@ Makefile: ../Gravity_Bike/Gravity_Bike.pro C:/Qt/Qt5.13.2/5.13.2/mingw73_64/mksp
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/mkspecs/features/lex.prf \
 		../Gravity_Bike/Gravity_Bike.pro \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Widgets.prl \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Multimedia.prl \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Gui.prl \
+		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Network.prl \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Core.prl \
 		C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/qtmain.prl
 	$(QMAKE) -o Makefile ..\Gravity_Bike\Gravity_Bike.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
@@ -443,7 +445,9 @@ C:/Qt/Qt5.13.2/5.13.2/mingw73_64/mkspecs/features/yacc.prf:
 C:/Qt/Qt5.13.2/5.13.2/mingw73_64/mkspecs/features/lex.prf:
 ../Gravity_Bike/Gravity_Bike.pro:
 C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Widgets.prl:
+C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Multimedia.prl:
 C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Gui.prl:
+C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Network.prl:
 C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/Qt5Core.prl:
 C:/Qt/Qt5.13.2/5.13.2/mingw73_64/lib/qtmain.prl:
 qmake: FORCE

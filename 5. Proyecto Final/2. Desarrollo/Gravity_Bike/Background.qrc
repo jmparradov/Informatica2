@@ -18,5 +18,6 @@
     <file>sources/menus/falling.jpg</file>
     <file>sources/menus/win.jpg</file>
     <file>sources/character/c1.png</file>
+    <file>sources/music/music.mp3</file>
 </qresource>
 </RCC>
