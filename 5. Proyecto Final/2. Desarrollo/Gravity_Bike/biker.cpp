@@ -6,7 +6,7 @@
 #define G 9.89       // gravity m/s^2
 #define E 150        // px/m
 #define n 4
-#define T 2
+#define T 1
 
 biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QString world_s, int  players_s, QMainWindow *mainW_s)
 {
@@ -28,7 +28,7 @@ biker::biker(std::map<double, std::vector<double>> line, QString difficult_s, QS
     //qDebug() << "lines" <<lines;
 
     //draw it and locate
-    QPixmap pim("../Gravity_Bike/sources/character/c1.png");
+    QPixmap pim(":/sources/character/c1.png");
     setPixmap(pim);
     setTransformOriginPoint(width/2,height/2);
     setPos(0,0);

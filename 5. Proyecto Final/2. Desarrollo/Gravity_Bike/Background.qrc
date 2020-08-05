@@ -16,5 +16,6 @@
     <file>sources/menus/howto.png</file>
     <file>sources/menus/pause.jpg</file>
     <file>sources/menus/falling.jpg</file>
+    <file>sources/character/c1.png</file>
 </qresource>
 </RCC>
